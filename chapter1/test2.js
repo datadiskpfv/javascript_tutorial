@@ -20,3 +20,8 @@ console.log(age);
 console.log(55 === 55);             // true both are indentical
 console.log("55" === 55);           // false as one is string and one is number
 
+var test1 = true;
+var test2 = false;
+
+test1 ? console.log("test1 is true") : console.log("test1 is false");
+test2 ? console.log("test2 is true") : console.log("test2 is false");
