@@ -4,7 +4,7 @@
 
 var i = 10;
 
-// dont forget the break otherwise it will fallthrough to the next statement
+// don't forget the break otherwise it will fallthrough to the next statement
 switch(i) {
     case 5:
         console.log("you chose 5");
