@@ -79,6 +79,8 @@ console.log(person5.sayName());
 // now the functions are the same
 console.log(person4.sayName() == person5.sayName());        // now true as functions are the same
 
+//NOTE: any changes to the prototype are reflected to all all instances that use the prototype property values
+
 // to create a new instance of Person1, change one of the properties
 person5.name = "Lorraine Valle";
 person5.age = 44;
