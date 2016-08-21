@@ -56,7 +56,16 @@ SubType.prototype.sayAge = function() {
     return this.age;
 }
 
+
 var instance1 = new SubType("Paul Valle", 49);
 instance1.colors.push("black");
 
 console.log("Name: " + instance1.sayName() + " Age: " + instance1.sayAge());
+
+console.log(instance1 instanceof Object);           // true
+console.log(instance1 instanceof SuperType);        // true
+console.log(instance1 instanceof SubType);          // true
+
+console.log(Object.prototype.isPrototypeOf(instance1));        // true
+console.log(SuperType.prototype.isPrototypeOf(instance1));     // true
+console.log(SubType.prototype.isPrototypeOf(instance1));       // true
