@@ -49,3 +49,54 @@ console.log(instance.getSuperValue());          // javascript will look down the
 
 // NOTE: you cannot use object literal when prototype chaining as you will overwrite the chain
 
+/*
+ * Constructor Stealing
+ */
+
+// Instead of using the prototype you can use a technique called constructor stealing, which basically calls the
+// supertype constructor within the subtype constructor
+function SuperType1(color) {                          // We can pass arguments
+    this.colors = ["red", "blue", "green"];
+    this.colors.push(color);                          // and use the passed arguments
+}
+
+function SubType1() {
+    SuperType1.call(this, "Yellow");                  // inherit from SuperType, you can also pass arguments
+}
+
+var instance1 = new SubType1();
+instance1.colors.push("black");
+console.log(instance1.colors);
+
+/*
+ * Combination Inheritance
+ */
+
+// this addresses issues with other inheritance constructors and therefore is commonly used in javascript
+function SuperType2(name) {
+    this.name = name;
+    this.colors = ["red", "green", "blue"];
+}
+
+SuperType2.prototype.sayName = function() {
+    return this.name;
+};
+
+function SubType2(name, age){
+    SuperType2.call(this, name);
+
+    this.age = age;
+}
+
+SubType2.prototype = new SuperType2;
+
+SubType2.prototype.sayAge = function() {
+    return this.age;
+};
+
+var instance2 = new SubType2("Paul Valle", 49);
+instance2.colors.push("black");
+console.log(instance2.sayName() + " age: " + instance2.age);
+console.log(instance2.colors);
+
+
