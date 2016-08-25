@@ -101,3 +101,59 @@ function test2() {
 console.log(test2()[0]());              // now it all looks good
 console.log(test2()[1]());
 console.log(test2()[2]());
+
+/*
+ * this object inside closures
+ */
+
+// this object has some complex behaviors inside closures
+var name = "The window";
+
+var object = {
+    name: "My Object",
+    getNameFunc: function(){
+        // functions get two special variables when called - this and arguments
+        // an inner function cannot access outer functions variables
+        // so you can store outer variables to another variable that closures can access
+        //var that = this;
+        return function(){
+            //return that.name;         // access the inner variables that contain outer variable data
+            return this.name;
+        };
+    }
+};
+
+console.log(object.getNameFunc()());
+
+/*
+ * block scope and mimicking
+ */
+
+function outputNumbers(){
+    for (var x = 0; x < 5; x++){
+        console.log("count% " + x);
+    }
+
+    // x should not exist as for loop has finished
+    return x;
+}
+
+console.log(outputNumbers());       // x gets returned when it should not
+
+// use the below technique to create private variable scope
+
+function outputNumbers2() {
+    // insert a private scope around the for loop, which means all variables are destroyed
+    // enclose the function in brackets which declares anonymous function, which is called immediately
+    // this is also called an immediately invoked function, which is what the end parentheses are
+    (function() {
+        for (var x = 0; x < 5; x++) {
+            console.log("count# " + x);
+        }
+    })();               // these parentheses are used to called the function immediately
+
+    // now if you uncomment the below line you get an error because x wont be available
+    // return x;
+}
+
+outputNumbers2();
