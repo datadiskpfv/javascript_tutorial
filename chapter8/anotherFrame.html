@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>anotherFrame</title>
+</head>
+<body>
+<h1>anotherFrame</h1>
+<script type="text/javascript">
+    document.write(window.name + "<br>");
+    document.write(this.name + "<br>");
+    document.write((parent.frames[1].name + "<br>"));
+    document.write((top.frames[1].name));
+    window.open("http://www.datadisk.co.uk", "topFrame");
+</script>
+</body>
+</html>

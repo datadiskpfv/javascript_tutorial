@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>topFrame</title>
+</head>
+<body>
+<h1>topFrame</h1>
+
+<script type="text/javascript">
+    document.write(window.name + "<br>");
+    document.write(this.name + "<br>");
+    document.write((parent.frames[0].name + "<br>"));
+    document.write((top.frames[0].name + "<br>"));
+    var timeoutID = setTimeout(function() {
+        document.write("timeout executed");
+    }, 10000);
+    document.write("timeout finished - " + timeoutID);
+</script>
+</body>
+</html>
