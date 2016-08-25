@@ -9,6 +9,25 @@
     document.write("appCodeName: " + navigator.appCodeName + "<br>");
     document.write("appVersion: " + navigator.appVersion + "<br>");
     document.write("cookieEnabled: " + navigator.cookieEnabled + "<br>");
+    document.write("plugins: " + navigator.plugins + "<br>");
+
+    for(var i = 0; i < navigator.plugins.length; i++) {
+        document.write("&nbsp &nbsp" + navigator.plugins[i].name.toLowerCase() + "<br>");
+    }
+
+    // this wont work in anything other than IE, which would return true
+    function hasIEPlugin(name) {
+        try {
+            new ActiveXObject(name);
+            return true
+        } catch (ex) {
+            return false;
+        }
+    }
+
+    document.write("Shockwave Flash?: " + hasIEPlugin("ShockwaveFlash.ShockwaveFlash"));
 </script>
+<br><br>
+lots more Navigator properties and methods.
 </body>
 </html>
