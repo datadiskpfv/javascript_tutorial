@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo">Click the button to change the text in this paragraph.</p>
+
+<button onclick="myFunction('demo')">Try it</button>
+
+<script>
+    // what we are trying to determine is not the browser but what the browser is capable of
+    function myFunction(id) {
+        // we test that the browser has a method called getElementByID
+        // so you could test if other methods exist for a specific browser
+        if (document.getElementById){
+            document.getElementById(id).innerHTML = "Hello World";
+        } else if (document.all) {
+            document.write(document.all["demo"]);
+        } else {
+            throw new Error("No way to retrieve element");
+        }
+    }
+
+    var array1 = [1, 2, 3];
+    document.write("<br><br> is array1 sortable(isSortable): " + isSortable(array1) + "<br>");
+
+    // you check objects functions use typeof, example below checks to see if an object has a
+    // sort function, its not infallible
+    function isSortable(object) {
+        return typeof object.sort == "function";
+    }
+
+    // we pass the object and the function to check for
+    document.write("<br> is array1 sortable(isHostMethod): " + isHostMethod(array1, 'sort') + "<br>");
+
+    // a better method to test is from Peter Michaux
+    function isHostMethod(object, property) {
+        var t = typeof object[property];
+        document.write("&nbsp &nbsp  typeof (isHostMethod): " + t);
+
+        // there are times that IE will return unknown, hence the last test
+        return t=='function' || (!!('object' && object[property])) || t == 'unknown';
+    }
+
+    // to save time you could perform a test first, then save the results which can be used later for speed
+    // the below test checks for DOM1 capabilities
+    var hasDOM1 = !!(document.getElementById && document.createElement && document.getElementsByTagName);
+
+    document.write("<br> this browser has DOM1 capabilities: " + hasDOM1 + "<br>");
+
+    // getting the browser and version numbers for all possible browsers can be a bit tricky
+    // you can also get operating system info, mobile device info, etc
+    // you can make this as complex as you need to
+
+    var nVer = navigator.appVersion;
+    var nAgt = navigator.userAgent;
+
+    document.write("<br> appVersion:&nbsp&nbsp&nbsp" + nVer + "<br>");
+    document.write("userAgent:&nbsp&nbsp&nbsp" + nAgt + "<br><br>");
+
+    var browserName  = navigator.appName;
+    var fullVersion  = ''+parseFloat(navigator.appVersion);
+    var majorVersion = parseInt(navigator.appVersion,10);
+    var nameOffset,verOffset,ix;
+
+    // In Opera, the true version is after "Opera" or after "Version"
+    if ((verOffset=nAgt.indexOf("Opera"))!=-1) {
+        browserName = "Opera";
+        fullVersion = nAgt.substring(verOffset+6);
+        if ((verOffset=nAgt.indexOf("Version"))!=-1)
+            fullVersion = nAgt.substring(verOffset+8);
+    }
+// In MSIE, the true version is after "MSIE" in userAgent
+    else if ((verOffset=nAgt.indexOf("MSIE"))!=-1) {
+        browserName = "Microsoft Internet Explorer";
+        fullVersion = nAgt.substring(verOffset+5);
+    }
+// In Chrome, the true version is after "Chrome"
+    else if ((verOffset=nAgt.indexOf("Chrome"))!=-1) {
+        browserName = "Chrome";
+        fullVersion = nAgt.substring(verOffset+7);
+    }
+// In Safari, the true version is after "Safari" or after "Version"
+    else if ((verOffset=nAgt.indexOf("Safari"))!=-1) {
+        browserName = "Safari";
+        fullVersion = nAgt.substring(verOffset+7);
+        if ((verOffset=nAgt.indexOf("Version"))!=-1)
+            fullVersion = nAgt.substring(verOffset+8);
+    }
+// In Firefox, the true version is after "Firefox"
+    else if ((verOffset=nAgt.indexOf("Firefox"))!=-1) {
+        browserName = "Firefox";
+        fullVersion = nAgt.substring(verOffset+8);
+    }
+// In most other browsers, "name/version" is at the end of userAgent
+    else if ( (nameOffset=nAgt.lastIndexOf(' ')+1) <
+            (verOffset=nAgt.lastIndexOf('/')) )
+    {
+        browserName = nAgt.substring(nameOffset,verOffset);
+        fullVersion = nAgt.substring(verOffset+1);
+        if (browserName.toLowerCase()==browserName.toUpperCase()) {
+            browserName = navigator.appName;
+        }
+    }
+    // trim the fullVersion string at semicolon/space if present
+    if ((ix=fullVersion.indexOf(";"))!=-1)
+        fullVersion=fullVersion.substring(0,ix);
+    if ((ix=fullVersion.indexOf(" "))!=-1)
+        fullVersion=fullVersion.substring(0,ix);
+
+    majorVersion = parseInt(''+fullVersion,10);
+    if (isNaN(majorVersion)) {
+        fullVersion  = ''+parseFloat(navigator.appVersion);
+        majorVersion = parseInt(navigator.appVersion,10);
+    }
+
+    document.write(''
+            +'Browser name  = '+browserName+'<br>'
+            +'Full version  = '+fullVersion+'<br>'
+            +'Major version = '+majorVersion+'<br>'
+            +'navigator.appName = '+navigator.appName+'<br>'
+            +'navigator.userAgent = '+navigator.userAgent+'<br>'
+    )
+
+</script>
+
+</body>
+</html>
