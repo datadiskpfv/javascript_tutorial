@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM2 examples</title>
+
+
+</head>
+<body>
+
+<div id="myDiv">Some text - myDiv</div>
+
+<!-- the getElementById must come after the assignment above, also its case-sensitive -->
+<script type="text/javascript">
+    document.write("myDiv element: " + document.getElementById("myDiv"));
+</script>
+<br><br>
+
+<input type="text" name="myElement" value="Text Field">
+<br>
+<!-- again the getElementByTagName must come after the assignment above, also its case-sensitive -->
+<script type="text/javascript">
+    document.write("myElement element: " + document.getElementsByTagName("myElement"));
+</script>
+<br><br>
+<img src="myImage1.gif" name="myImage1" alt="myImage1"><br>
+<img src="myImage2.gif" name="myImage2" alt="myImage2"><br>
+<img src="myImage3.gif" name="myImage3" alt="myImage3"><br>
+
+<!-- you can retrive the number of images on a web page, and get the source location of the file -->
+<script type="text/javascript">
+    document.write("Number of images: " + document.getElementsByTagName("img").length + "<br>");
+    document.write("output source of image (1): " + document.getElementsByTagName("img")[0].src + "<br>");
+    document.write("output source of image (2): " + document.getElementsByTagName("img").item(0).src + "<br><br>");
+</script>
+
+<!-- you can access all elements, here is a list of all elements on this page -->
+<script type="text/javascript">
+    document.write("Number of all Elements: " + document.getElementsByTagName("*").length + "<br>");
+    document.write("output source of image (1): " + document.getElementsByTagName("*")[0].tagName + "<br>");
+
+    var elementLength = document.getElementsByTagName("*").length;
+    for (var i=0; i < elementLength; i++) {
+        document.write(document.getElementsByTagName("*")[i].tagName + "<br>");
+    }
+</script>
+
+</body>
+</html>
