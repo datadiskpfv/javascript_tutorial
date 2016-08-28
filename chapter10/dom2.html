@@ -8,6 +8,19 @@
 </head>
 <body>
 
+<a href="http://www.datadisk.co.uk">link example</a><br>
+<a name="#anchor">anchor example</a><br>
+
+<form action="action_page.php">
+    First name:<br>
+    <input type="text" name="firstname" value="Mickey">
+    <br>
+    Last name:<br>
+    <input type="text" name="lastname" value="Mouse">
+    <br><br>
+    <input type="submit" value="Submit">
+</form>
+
 <div id="myDiv">Some text - myDiv</div>
 
 <!-- the getElementById must come after the assignment above, also its case-sensitive -->
@@ -41,8 +54,32 @@
 
     var elementLength = document.getElementsByTagName("*").length;
     for (var i=0; i < elementLength; i++) {
-        document.write(document.getElementsByTagName("*")[i].tagName + "<br>");
+        document.write(document.getElementsByTagName("*")[i].tagName + "<br><br>");
     }
+</script>
+
+<script type="text/javascript">
+    // other special collections regarding document
+    document.write("Document Anchors: " + document.anchors + "# : " + document.anchors.length + "<br>");
+    document.write("Document Applets: " + document.applets + "# : " + document.applets.length + "<br>");
+    document.write("Document Forms: " + document.forms + "# : " + document.forms.length + "<br>");
+    document.write("Document Images: " + document.images + "# : " + document.images.length + "<br>");
+    document.write("Document Links: " + document.links + "# : " + document.links.length + "<br><br>");
+</script>
+
+<script type="text/javascript">
+    // you can test for mouse events, html events, CSS/CSS2, Views, Stylesheets and various versions.
+    // although not fool proof it gives you a test to see various parts of the DOM specification is implemented
+    document.write("document Implementation: " + document.implementation + "<br>");
+    document.write("hasXmlDom: " + document.implementation.hasFeature("XML", "1.0") + "<br>");
+    document.write("hasCSS2Dom: " + document.implementation.hasFeature("CSS2", "2.0") + "<br>");
+    document.write("hasMouseEventsDom: " + document.implementation.hasFeature("MouseEvents", "3.0") + "<br><br>");
+</script>
+
+<script type="text/javascript">
+    // lastly we have document write which we have used above
+    document.write("This is a document write line<br>");
+    document.writeln("This is a document writeln line");
 </script>
 
 </body>

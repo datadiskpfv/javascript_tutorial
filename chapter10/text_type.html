@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text Type examples</title>
+</head>
+<body>
+
+<div id="myDiv" title="Body text" >Some div text</div>
+
+<script type="text/javascript">
+    var div = document.getElementById("myDiv");
+
+    // we can use either of the two below
+    document.write("textNode: " + div.firstChild.nodeValue + "<br>");
+    document.write("textNode: " + div.childNodes[0].nodeValue + "<br>");
+
+    document.write("textName: " + div.childNodes[0].nodeName + "<br>");
+    document.write("textNode: " + div.childNodes[0].parentNode + "<br>");
+
+    div.childNodes[0].appendData(", some added text");
+
+    div.childNodes[0].nodeValue = "i have now replaced this text";
+
+    var element = document.createElement("div2");
+    element.className = "message";
+
+    var textNode = document.createTextNode("Hello World!  ");
+    element.appendChild(textNode);
+
+    var anotherTextNode = document.createTextNode("Yippee!!");
+    element.appendChild(anotherTextNode);
+
+    //document.body.appendChild(element);
+
+    //document.write("textName: " + div2.childNodes[0].nodeValue + "<br><br>");
+
+    // you can split text nodes
+    var newNode = element.firstChild.splitText(12);
+    document.write("first child " + element.firstChild.nodeValue + "<br>");         // this has hello world!
+    document.write("newNode value:" + newNode.nodeValue + "X<br>");                 // this has space
+    document.write("last child: " + element.lastChild.nodeValue + "<br>");          // this has yippee!!
+    document.write("# of child nodes: " + element.childNodes.length.toString() + "<br>");  // there are 3 elements as above
+
+</script>
+
+</body>
+</html>

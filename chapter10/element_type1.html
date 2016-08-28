@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<div id="myDiv" class="bd" title="Body text" lang="en" dir="ltr" my_custom_attr="paul"></div>
+
+<script type="text/javascript">
+    var div = document.getElementById("myDiv");
+    document.write("DIV: " + div + "<br>");
+    document.write("tagName: " + div.tagName + "<br>");        // always in uppercase (use toLowerCase for tests)
+    document.write("nodeName: " + div.nodeName + "<br><br>");
+
+    // there are many elements i show some examples below
+    // you can change the attribute by assigning a value, example div.id = <value>
+
+    document.write("ID: " + div.id + "<br>");
+    document.write("Class Name: " + div.className + "<br>");
+    document.write("Title: " + div.title + "<br>");
+    document.write("lang: " + div.lang + "<br>");
+    document.write("dir: " + div.dir + "<br><br>");
+
+    // to get the attribute of an element, notice this time we use the actual attribute name, for example class instead of className
+    // you can use setAttribute() to set attributes
+    // you can use removeAttribute() to completely remove the attribute from the element.
+    document.write("ID: " + div.getAttribute("id") + "<br>");
+    document.write("Class Name: " + div.getAttribute("class") + "<br>");
+    document.write("Title: " + div.getAttribute("title") + "<br>");
+    document.write("Lang: " + div.getAttribute("lang") + "<br>");
+    document.write("Dir: " + div.getAttribute("dir") + "<br>");
+    document.write("Custom Attribute: " + div.getAttribute("my_custom_attr") + "<br><br>");
+
+    // you can use attribute property to achieve the same as above
+    document.write(div.attributes.getNamedItem("id").nodeName + "<br>");
+    document.write(div.attributes.getNamedItem("id").nodeValue + "<br>");
+    document.write(div.attributes["id"].nodeName + "<br>");                     // shorthand for above
+    document.write(div.attributes["id"].nodeValue + "<br><br>")                     // shorthand for above
+
+    // to create an element
+    var div = document.createElement("div");
+    div.id = "myNewDiv";
+    div.className = "box";
+    document.write("new div  ID: " + div.id + "<br>");
+    document.write("new div Class Name: " + div.className + "<br>");
+    document.write("new div Title: " + div.title + "<br>");               // not set yet. so blank
+
+    document.body.appendChild(div);                                        // add to body of document, the web page is then rendered immediately
+
+</script>
+</body>
+</html>
