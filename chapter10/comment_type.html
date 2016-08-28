@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Comment Type</title>
+</head>
+<body>
+
+<div id="myDiv"><!-- this is a comment --></div>
+
+<script type="text/javascript">
+    var div = document.getElementById("myDiv");
+    var comment = div.firstChild;
+    document.write("Div comment: " + comment + "<br>");
+    document.write("Div comment  (nodeValue): " + comment.nodeValue + "<br>");
+    document.write("Div comment (data): " + comment.data + "<br>");
+
+    // to create comments
+    var comment = document.createComment("A comment");
+
+</script>
+
+</body>
+</html>
