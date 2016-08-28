@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Node List</title>
+</head>
+<body>
+<div id="myDiv" name="myDiv">some test</div>
+<script type="text/javascript">
+    var divs = document.getElementsByTagName("myDiv"),
+            i,
+            div;
+
+    document.write("Collection: " + divs);
+
+    for (i=0, len=divs.length; i < len; i++){
+        div = document.createElement("myDiv");
+        document.body.appendChild(div);
+    }
+
+</script>
+</body>
+</html>

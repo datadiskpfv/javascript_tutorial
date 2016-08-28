@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Scripts and Styles</title>
+</head>
+<body>
+
+<!-- normally you would call the script as below -->
+<script type="text/javascript" src="client.js"></script>
+
+<!-- using the DOM you would add a javascript as below as below -->
+<script type="text/javascript">
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+  // you could add a script source
+  script.text = "function sayHi(){document.write('hello');}";
+  // or specify the script location
+  //script.src = "client.js";
+  document.body.appendChild(script);
+  sayHi();
+</script>
+
+<!-- normally you create a CSS link as below -->
+<link rel="stylesheet" type="text/css" href="styles.css">
+
+<!-- using the DOM you can include a stylesheet as below -->
+<script type="text/javascript">
+    // you could wrap this into a function
+    var link = docucment.createElement("link");
+    link.rel = "stylesheet";
+    link.type = "text/css";
+    link.href = url;
+    var head = document.getElementsByTagName("head")[0];
+    head.appendChild(link);
+</script>
+
+<!-- inline styles are as below -->
+<style type="text/css">
+    body {
+        background-color: red;
+    }
+</style>
+
+<!-- using the DOM for styles-->
+<script type="text/javascript">
+    var style = document.createElement("style");
+    style.type = "text/css";
+    style.appendChild(document.createTextNode("body{background-color:red}"));
+    var head = document.getElementsByTagName("head")[0];
+    head.appendChild(style);
+</script>
+
+</body>
+</html>
