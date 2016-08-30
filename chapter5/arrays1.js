@@ -5,7 +5,7 @@
 // arrays in javascript can hold strings and integers
 var mixed = new Array("red", 1, "blue", 2, "green", 3);
 console.log("mixed[0]: " + mixed[0]);
-console.log("mixed[0]: " + mixed[3]);
+console.log("mixed[3]: " + mixed[3]);
 
 // create an array with an initial length
 var largeArray = new Array(100);
@@ -13,11 +13,11 @@ console.log("large array size: " + largeArray.length);
 
 // you can also obmit the new keyword and still create an array
 var noNew = Array("red", 1, "blue", 2, "green", 3);
-console.log("noNew[0]: " + noNew[3]);
+console.log("noNew[3]: " + noNew[3]);
 
 // you can even just use brackets only
 var justBrackets = ["red", 1, "blue", 2, "green", 3];
-console.log("justBrackets[0]: " + justBrackets[4]);
+console.log("justBrackets[4]: " + justBrackets[4]);
 
 // so you have three ways to create an array (in this case empty arrays)
 var array1 = new Array();
