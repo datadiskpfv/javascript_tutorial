@@ -117,3 +117,4 @@ var singleton2 = function() {
 
 console.log(singleton2.publicMethod());          // we can access public methods
 console.log(singleton2.publicProperty);          // we can access public variables
+console.log(singleton2.private);

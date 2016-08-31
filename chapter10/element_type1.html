@@ -45,9 +45,16 @@
     div.className = "box";
     document.write("new div  ID: " + div.id + "<br>");
     document.write("new div Class Name: " + div.className + "<br>");
-    document.write("new div Title: " + div.title + "<br>");               // not set yet. so blank
+    document.write("new div Title: " + div.title + "<br><br/>");               // not set yet. so blank
 
-    document.body.appendChild(div);                                        // add to body of document, the web page is then rendered immediately
+    //document.body.appendChild(div);                                        // add to body of document, the web page is then rendered immediately
+
+    // you can also retrieve the attributes and list them one by one
+    var elements = document.getElementById("myDiv");
+    var atts = elements.attributes;
+    for (var i=0; i<atts.length; i++) {
+        document.write("element: " + atts[i].nodeName + "Value: " + atts[i].nodeValue + "<br/>");
+    }
 
 </script>
 </body>

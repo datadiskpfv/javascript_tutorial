@@ -43,6 +43,7 @@
 
     // to save time you could perform a test first, then save the results which can be used later for speed
     // the below test checks for DOM1 capabilities
+    // double bang is not not (used for casting a non-bool value into a bool value)
     var hasDOM1 = !!(document.getElementById && document.createElement && document.getElementsByTagName);
 
     document.write("<br> this browser has DOM1 capabilities: " + hasDOM1 + "<br>");
