@@ -69,3 +69,8 @@ console.log(instance1 instanceof SubType);          // true
 console.log(Object.prototype.isPrototypeOf(instance1));        // true
 console.log(SuperType.prototype.isPrototypeOf(instance1));     // true
 console.log(SubType.prototype.isPrototypeOf(instance1));       // true
+
+console.log("SuperType proto: " + SuperType.__proto__);
+console.log("SubType proto: " + SubType.__proto__);
+console.log("instance1 proto: " + instance1.__proto__.constructor.name);
+console.log("instance1 proto: " + instance1.__proto__.__proto__.colors);

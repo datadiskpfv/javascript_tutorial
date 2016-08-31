@@ -14,14 +14,14 @@ console.log(result.slice(3));
 console.log(result.substring(3));
 console.log(result.substr(3));
 
-// with two arguments - start postion and
-console.log(result.slice(3, 7));            // start and end position but dont include end position
-console.log(result.substring(3, 7));        // start and end position but dont include end position
-console.log(result.substr(3, 7));           // start and finish position
+// with two arguments - various ways to slice/substring a string
+console.log(result.slice(3, 7));            // start and end position but don't include end position
+console.log(result.substring(3, 7));        // start and end position but don't include end position
+console.log(result.substr(3, 7));           // start position and include number of characters
 
 // see description below
 console.log(result.slice(-3));              // start at end of string
-console.log(result.substring(-3));          // negative numbers are converted to zero
+console.log(result.substring(-3));          // negative numbers are converted to zero, so we start at 0
 console.log(result.substr(-3));             // length of string plus the number
 
 // string location
@@ -45,7 +45,7 @@ console.log(case1.toLowerCase());
 
 // string replacements
 var text = "cat, bat, sat, hat";
-var result1 = text.replace("at", "ond");        // will only replace first occurrence
+var result1 = text.replace("at", "ond");        // will only replace first occurrence, notice no global /g
 console.log(result1);
-var result2 = text.replace(/at/g, "ond");       // will globally replace all
+var result2 = text.replace(/at/g, "ond");       // will globally replace all, notice the /g
 console.log(result2);

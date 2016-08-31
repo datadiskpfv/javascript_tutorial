@@ -3,9 +3,9 @@
  */
 
 var s1 = "some text";
-s1.color = "red";
-console.log(s1.color);
+s1.color = "red";                   // wont set color value (not a ref type)
 console.log(s1);
+console.log(s1.color);              // undefined as s1 does not have color (not a ref type)
 
 // casting and using primitive are different
 var value = "25";                   // string value

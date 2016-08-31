@@ -37,7 +37,7 @@ function compare(value1, value2) {
     return value1 - value2;
 }
 numbers2.sort(compare);
-console.log(numbers2);              // thats better we have used a numerical comparison function
+console.log(numbers2);              // that's better we have used a numerical comparison function
 
 // you can concat arrays
 var sport1 = ["football", "ruby", "cricket"];

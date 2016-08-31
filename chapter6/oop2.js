@@ -26,7 +26,7 @@ console.log("Your name is " + person1.sayName() + " and you are " + person1.age 
  * Constructor Pattern
  */
 
-// the factory however did not address the issue of object identification
+// the factory pattern however did not address the issue of object identification
 // using the constructor pattern automatically uses native constructors in Object and Array
 // the above can now be rewritten as below
 // constructor patterns begin with a capital letter
@@ -92,7 +92,7 @@ person5.age = 44;
 console.log(person5.sayName());         // returns the instance property value
 console.log(person5.job);               // as we have not set this it returns the prototype property value
 
-// you can use delete to remove the instance property value and repoint back to the prototype property value
+// you can use delete to remove the instance property value and re-point back to the prototype property value
 delete person5.name;
 console.log(person5.sayName());         // now back to prototype property value
 
@@ -142,7 +142,7 @@ console.log(friend1.constructor == Object);      // false, this does not point t
 console.log(friend1.constructor == Person3);     // now true
 
 // however this sets the constructor property enumerable to true, you can set back to false with the below
-// native constructors properties are not enrumerable by default
+// native constructors properties are not enumerable by default
 Object.defineProperty(Person3.prototype, "constructor", {
     enumerable: false,
     value: Person3

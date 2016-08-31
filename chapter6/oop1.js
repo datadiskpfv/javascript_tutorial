@@ -48,7 +48,7 @@ console.log(person3.name);
 
 // notice when we change the name we get no error, the command is just ignored
 // using "use strict" will detect errors like this
-person3.name = "Lorraine Valle";            // this is ignored
+person3.name = "Lorraine Valle";            // this is ignored, because name is not writable
 console.log(person3.name);
 
 // you cannot delete the property if configurable is false

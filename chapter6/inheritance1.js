@@ -35,6 +35,8 @@ var instance = new SubType();
 console.log(instance.getSuperValue());          // call the inherited getSuperValue function
 console.log(instance.getSubValue());
 
+
+
 // the relationship is that instance is an instanceof Object, SuperType and SubType
 console.log(instance instanceof Object);
 console.log(instance instanceof SuperType);
@@ -47,6 +49,8 @@ SubType.prototype.getSuperValue  = function() {
 
 console.log(instance.getSuperValue());          // javascript will look down the chain and find the SubValue function first
 
+console.log("SuperType proto: " + SuperType.__proto__);
+console.log("SubType proto: " + SubType.__proto__);
 // NOTE: you cannot use object literal when prototype chaining as you will overwrite the chain
 
 /*
@@ -67,6 +71,8 @@ function SubType1() {
 var instance1 = new SubType1();
 instance1.colors.push("black");
 console.log(instance1.colors);
+console.log("SuperType1 proto: " + SuperType1.__proto__);
+console.log("SubType1 proto: " + SubType1.__proto__);
 
 /*
  * Combination Inheritance
@@ -98,5 +104,7 @@ var instance2 = new SubType2("Paul Valle", 49);
 instance2.colors.push("black");
 console.log(instance2.sayName() + " age: " + instance2.age);
 console.log(instance2.colors);
+console.log("SuperType2 proto: " + SuperType2.__proto__.__proto__);
+console.log("SubType2 proto: " + SubType2.__proto__.__proto__);
 
 
