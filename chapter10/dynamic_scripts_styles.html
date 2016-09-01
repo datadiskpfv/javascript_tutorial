@@ -9,7 +9,7 @@
 <!-- normally you would call the script as below -->
 <script type="text/javascript" src="client.js"></script>
 
-<!-- using the DOM you would add a javascript as below as below -->
+<!-- using the DOM you would add a javascript as below  -->
 <script type="text/javascript">
   var script = document.createElement("script");
   script.type = "text/javascript";
@@ -18,6 +18,7 @@
   // or specify the script location
   //script.src = "client.js";
   document.body.appendChild(script);
+  // now lets call the javascript function
   sayHi();
 </script>
 
@@ -27,7 +28,7 @@
 <!-- using the DOM you can include a stylesheet as below -->
 <script type="text/javascript">
     // you could wrap this into a function
-    var link = docucment.createElement("link");
+    var link = document.createElement("link");
     link.rel = "stylesheet";
     link.type = "text/css";
     link.href = url;
