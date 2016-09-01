@@ -3,9 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 30%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
 </head>
 <body>
 
+<!-- ltr is left-to-right, rlt = right-to-left -->
 <div id="myDiv" class="bd" title="Body text" lang="en" dir="ltr" my_custom_attr="paul"></div>
 
 <script type="text/javascript">
@@ -52,9 +71,12 @@
     // you can also retrieve the attributes and list them one by one
     var elements = document.getElementById("myDiv");
     var atts = elements.attributes;
+    document.write("<table border='1'>");
+    document.write("<tr><th>Element</th><th>Value</th>");
     for (var i=0; i<atts.length; i++) {
-        document.write("element: " + atts[i].nodeName + "Value: " + atts[i].nodeValue + "<br/>");
+        document.write("<tr><td>" + atts[i].name + "</td><td>" + atts[i].value + "</td>");
     }
+    document.write("</table>");
 
 </script>
 </body>
