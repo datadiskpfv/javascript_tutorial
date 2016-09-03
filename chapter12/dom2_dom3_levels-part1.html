@@ -93,5 +93,27 @@
     document.styleSheets[0].deleteRule(0);
 </script>
 
+<div id="offsetleft">offset left</div>
+<div id="offsetright">offset right</div>
+
+<script>
+    // element dimensions - offsetHeight, offsetTop, offsetWidth and offsetLeft
+    var left = document.getElementById("offsetleft");
+    var right = document.getElementById("offsetright");
+
+    document.write("offsetleft Height: " + left.offsetHeight + " pixels <br/>");
+    document.write("offsetright Height: " + right.offsetHeight + " pixels <br/>");
+
+    document.write("offsetleft Top: " + left.offsetTop + " pixels<br/>");
+    document.write("offsetrigh Top: " + right.offsetTop + " pixels<br/>");
+
+    // get the body width
+    document.write("Body width: " + document.body.clientWidth + " pixels<br/>");
+    document.write("Body height: " + document.body.clientHeight + " pixels<br/>")
+
+    // you can also get the scroll dimensions - will leave that
+</script>
+
+
 </body>
 </html>

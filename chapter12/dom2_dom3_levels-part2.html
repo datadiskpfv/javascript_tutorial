@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Levels 2 and 3</title>
+</head>
+<body>
+
+<div id="div1">
+    <p><b>Hello World</b></p>
+    <ul>
+        <li>List Item 1</li>
+        <li>List Item 2</li>
+        <li>List Item 3</li>
+    </ul>
+</div>
+
+<script>
+    // first test that the browser supports Traversals, Node Iterator and Tree Walker
+    document.write("Traversal supported : " + document.implementation.hasFeature("Traversal", "2.0") + "<br/>");
+    document.write("Node Iterator supported : " + (typeof document.createNodeIterator == 'function') + "<br/>");
+    document.write("Tree Walker supported : " + (typeof document.createTreeWalker == 'function') + "<br/>");
+</script>
+
+<script>
+    // NodeIterator
+    var div1 = document.getElementById("div1");
+
+    var iterator = document.createNodeIterator(div1, NodeFilter.SHOW_ELEMENT, null, false);
+    var node = iterator.nextNode();
+    while ( node !== null){
+        document.write(node.tagName + "<br/>");
+        node = iterator.nextNode();
+    }
+</script>
+
+<script>
+    // TreeWalker
+    document.write("<br/><br/>");
+    var div2 = document.getElementById("div1");
+    var filter = function(node){
+        return node.tagName.toLowerCase() == "li" ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
+    };
+
+    var walker = document.createTreeWalker(div2, NodeFilter.SHOW_ELEMENT, filter, false);
+    var node = walker.firstChild();
+    while ( node !== null){
+        document.write(node.tagName + "<br/>");
+        node = walker.nextSibling();
+    }
+</script>
+</body>
+</html>

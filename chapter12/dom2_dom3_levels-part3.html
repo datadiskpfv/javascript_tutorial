@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM levels 2 and 3</title>
+</head>
+<body>
+
+<p id="p1"><b>Hello</b> world!</p>
+<p id="p2"><b>Hello</b> world!</p>
+
+<script>
+    // Test capability
+    document.write("Range support: " + document.implementation.hasFeature("Range", "2.0") + "<br/>");
+    document.write("createRange support: " + (typeof document.createRange == 'function') + "<br/>");
+</script>
+
+<script>
+    // now create the ranges
+    var oRange1 = document.createRange();
+    var oRange2 = document.createRange();
+    var oP1 = document.getElementById("p1");
+    oRange1.selectNode(oP1);
+    oRange2.selectNodeContents(oP1);
+
+    document.write("<br/>selectNode: " + oRange1 + "<br/>");
+    document.write("selectNodeContents: " + oRange2 + "<br/>");
+
+    var helloNode = oP1.firstChild.firstChild;
+    var worldNode = oP1.lastChild;
+
+    // now we are going to extract parts of the element
+    var range = document.createRange();
+    range.setStart(helloNode, 2);
+    range.setEnd(worldNode, 3);
+    document.write("range: " + range + "<br/>");
+
+    // now we can join the parts
+    oP1.parentNode.appendChild(range.extractContents());
+
+    // inserting
+    var i2 = document.getElementById("p2");
+    var helloNode1 = i2.firstChild.firstChild;
+    var worldNode1 = i2.lastChild;
+    var range2 = document.createRange();
+
+    range2.selectNode(helloNode1);
+    var span = document.createElement("span");
+    span.style.backgroundColor = "yellow";
+    range2.surroundContents(span);
+
+    document.write("<br/><br/>end");
+
+</script>
+
+</body>
+</html>
