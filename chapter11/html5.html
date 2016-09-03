@@ -9,7 +9,7 @@
 
 <button onclick="myFunction()">Try it</button>
 
-<script>
+<script type="text/javascript">
     function myFunction() {
         var x = document.getElementsByClassName("example");
         x[0].innerHTML = "Hello World!";
@@ -17,7 +17,7 @@
     }
 </script>
 
-<script>
+<script type="text/javascript">
     var div = document.getElementById("div1");
     var classes = div.className.split(/\s+/);
     document.write("<br/><br/> classes: " + classes + "<br/>");
@@ -39,7 +39,7 @@
     document.write("classes (changed): " + classes + "<br/>");
 
 </script>
-<script>
+<script type="text/javascript">
     // shorter way to do the above
     document.getElementById("div2").classList.add("current");
     document.getElementById("div2").classList.remove("bd");

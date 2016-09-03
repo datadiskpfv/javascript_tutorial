@@ -48,10 +48,21 @@
     var content = document.getElementById("content");
     document.write("<br/>innerHTML: " + content.innerHTML);
     document.write("<br/>outerHTML: " + content.outerHTML);
+    document.write("<br/>innerText: " + content.innerText);
+    document.write("<br/>outerText: " + content.innerText);
     content.insertAdjacentHTML("beforebegin", "<p>hello world 1</p>");
     content.insertAdjacentHTML("afterbegin", "<p>hello world 2</p>");
     content.insertAdjacentHTML("beforeend", "<p>hello world 3</p>");
     content.insertAdjacentHTML("afterend", "<p>hello world 4</p>");
+</script>
+
+<div id="scroll1">scrolling</div>
+
+<script>
+    // make sure that scroll1 is in view
+    // other scrollings - scrollIntoViewIfNeeded, scrollByLines, scrollByPages
+    var scroll = document.getElementById("scroll1");
+    scroll.scrollIntoView();
 </script>
 
 </body>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!-- XML namespaces allow elements from different XML-based languages to br mixed together in a single -->
+<!-- well form document with fear of name clashes -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM levels 2 and 3</title>
+    <link rel="stylesheet" type="text/css" href="test.css">
+</head>
+
+<body>
+
+<!-- part one and two will cover the following modules -->
+<!-- DOM Core - build on level 1 core, adding methods and properties to nodes -->
+<!-- DOM Views - defines different views for a document based on stylistic information -->
+<!-- DOM Events - explains how to tie interactivity to DOM documents using events -->
+<!-- DOM Style - defines how to programmically access and change CSS styling infromation -->
+<!-- DOM Traversal and Range - introduces new interfaces for traversing a DOM document and selecting specific parts of it -->
+<!-- DOM HTML - builds on the level 1 HTML, adding properties, methods and new interfaces -->
+
+<!-- DOM changes -->
+
+<script type="text/javascript">
+  // start be checking what the browser supports
+  document.write("DOM 2 supported: " + document.implementation.hasFeature("Core", "2.0") + "<br/>");
+  document.write("DOM 3 supported: " + document.implementation.hasFeature("Core", "3.0") + "<br/>");
+  document.write("HTML supported: " + document.implementation.hasFeature("HTML", "2.0") + "<br/>");
+  document.write("Views supported: " + document.implementation.hasFeature("Views", "2.0") + "<br/>");
+  document.write("XML supported: " + document.implementation.hasFeature("XML", "2.0") + "<br/>");
+</script>
+
+<!-- svg = scaleable vector graphics-->
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
+    <circle id="target" cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow"/>
+</svg>
+
+<script type="text/javascript">
+    var circle = document.getElementById( 'target' );
+    document.write("<br/>circle &nbsp&nbsp" + circle + "<br/>");
+    document.write( 'attribute fill: ' + circle.getAttribute('fill') + "<br/><br/>");
+</script>
+
+<!-- Styles -->
+<!-- you can styles in three ways external style sheet, use <style>  or use style attribute -->
+<script>
+    // check the CSS capabilities
+    document.write("CSS 2.0 supported:" + document.implementation.hasFeature("CSS", "2.0") + "<br/>");
+    document.write("CSS2 2.0 supported:" + document.implementation.hasFeature("CSS2", "2.0") + "<br/>");
+</script>
+<div id="mydiv">Hello World!!!!!</div>
+<script>
+    var mydiv = document.getElementById("mydiv");
+    mydiv.style.background = "red";
+    mydiv.style.width = "200px";
+    mydiv.style.height = "40px";
+    mydiv.style.border = "1px solid black";
+    document.write("CSS elements: " + mydiv.style.length + " "+ mydiv.style.cssText + "<br/>");
+    for(i=0; i< mydiv.style.length; i++){
+        document.write( mydiv.style[i] + "&nbsp&nbsp&nbsp" + mydiv.style.getPropertyValue(mydiv.style[i]) + "<br/>");
+    }
+
+    // you can also use computed styles
+    var computedStyle = document.defaultView.getComputedStyle(mydiv, null);
+    document.write("Computed background: " + computedStyle.backgroundColor + "<br/>");
+    document.write("Computed background: " + computedStyle.width + "<br/>");
+    document.write("Computed background: " + computedStyle.height + "<br/>");
+    document.write("Computed background: " + computedStyle.border + "<br/>");
+</script>
+
+<script>
+    // check that the browser supports stylesheets
+    document.write("Stylesheet support: " + document.implementation.hasFeature("stylesheets", "2.0") + "<br/>");
+
+    var sheet = null;
+    for (var i=0, len=document.styleSheets.length; i < len; i++ ){
+        sheet = document.styleSheets[i];
+        document.write("Stylesheet: " + sheet.href + "<br/>");
+    }
+    document.write("Link: " + document.getElementsByTagName("link")[0].href + "<br/>");
+
+    // display the CSS rules
+    var sheet = document.styleSheets[0];
+    var rules = sheet.cssRules || sheet.rules;
+    var rule = rules[0];
+    document.write("selectorText: " + rule.selectorText + "<br/>");
+    document.write("selectorText: " + rule.cssText + "<br/>");
+    rule.style.backgroundColor = "red";
+
+    // insert a rule (use addRule for IE)
+    document.styleSheets[0].insertRule("body {background-color: powderblue;}", 0);
+
+    // delete rule (use removeRule for IE)
+    document.styleSheets[0].deleteRule(0);
+</script>
+
+</body>
+</html>
