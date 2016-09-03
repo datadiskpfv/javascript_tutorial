@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM selectors</title>
+</head>
+<body>
+
+<div id="myDiv">hello</div>
+<div id="myDiv2">goodbye</div>
+
+<p id="strong1"><strong>p strong one</strong></p>
+<p id="strong2"><strong>p strong two</strong></p>
+
+<!--queryselectors-->
+<script type="text/javascript">
+    // get the body element
+    var body = document.querySelector("body");
+    document.write(body + "<br/>");
+
+    // get the element with the ID myDiv
+    var myDiv = document.querySelector("#myDiv");
+    document.write(myDiv + "<br/>");
+
+    // get all div elements
+    var ems = document.querySelectorAll("div");
+    document.write("All div: " + ems[0].id + "<br/>");
+    document.write("All div: " + ems[1].id + "<br/>");
+
+    // get all p strong elements and look at nodeList
+    var strongs = document.querySelectorAll("p");
+    document.write("Strongs: " + strongs + "<br/>");
+    var i, len, strong;
+    for(i=0, len=strongs.length; i< len; i++){
+        strong = strongs.item(i).id;
+        document.write(strong + "<br/>");
+    }
+</script>
+
+</body>
+</html>

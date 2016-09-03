@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div class="example">First div element with class="example".</div>
+<div class="example">Second div element with class="example".</div>
+<div id="div1" class="bd user disabled">multiple classes</div>
+<div id="div2" class="bd user disabled">multiple classes</div>
+
+<button onclick="myFunction()">Try it</button>
+
+<script>
+    function myFunction() {
+        var x = document.getElementsByClassName("example");
+        x[0].innerHTML = "Hello World!";
+        x[1].innerHTML = "Goodbye";
+    }
+</script>
+
+<script>
+    var div = document.getElementById("div1");
+    var classes = div.className.split(/\s+/);
+    document.write("<br/><br/> classes: " + classes + "<br/>");
+
+    var pos = -1;
+    var i;
+    var len;
+    // we need to get the position of bd
+    for(i=0, len = classes.length; i < len; i++){
+        if (classes[i] = "user"){
+            pos = i;
+            break;
+        }
+    }
+
+    // once we have the position we can remove the user
+    classes.splice(i,1);
+    div.classes = classes.join(" ");
+    document.write("classes (changed): " + classes + "<br/>");
+
+</script>
+<script>
+    // shorter way to do the above
+    document.getElementById("div2").classList.add("current");
+    document.getElementById("div2").classList.remove("bd");
+    document.write("div2 classes (changed): " + document.getElementById("div2").className.split(/\s+/) + "<br/>");
+
+    // you can check to see if a class exists
+    if (document.getElementById("div2").classList.contains("current")){
+        document.write("div2 class contains current" + "<br/>");
+    }
+
+    // loop through the class
+    for (var i=0, len = document.getElementById("div2").classList.length; i < len; i++ ){
+        document.write(document.getElementById("div2").classList[i] + "<br/>");
+    }
+</script>
+
+</body>
+</html>

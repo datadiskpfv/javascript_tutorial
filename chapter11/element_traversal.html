@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Element Traversal</title>
+</head>
+<body>
+
+<div id="id1">div1</div>
+<div id="id2">div2</div>
+
+<p>hello</p>
+<p>goodbye</p>
+
+<script>
+    function theDOMElementWalker(node) {
+        if (node.nodeType == 1) {
+
+            document.write(node.nodeName + "&nbsp&nbsp");
+
+            node = node.firstChild;
+
+            while (node) {
+                theDOMElementWalker(node);
+                node = node.nextSibling;
+            }
+        }
+    }
+
+    var body = document.querySelector("body");
+    theDOMElementWalker(body);
+
+</script>
+
+</body>
+</html>

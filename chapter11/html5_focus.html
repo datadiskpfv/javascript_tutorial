@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5 focus</title>
+</head>
+<body>
+
+<button id="mybutton"> try it</button>
+<div id="myid" data-number="12345" data-name="paul">hello</div>
+
+<div id="content">
+    <p>this is a paragraph</p>
+    <ul>
+        <li>item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+    </ul>
+</div>
+
+<script>
+    // you can can what is in focus and test ti see if this is the active element
+    var button = document.getElementById("mybutton");
+    button.focus();
+    document.write("<br/><br/>");
+    document.write("button focus: " + document.activeElement === button);
+
+    // you can see if the page has loaded, you can also use complete
+    if (document.readyState == "loading"){
+        document.write("<br/> document is loading!!!!!");
+    }
+
+    // check compatibility
+    if (document.compatMode == "CSS1Compat"){
+        document.write("<br/>CSS1 compatible");
+    }
+
+    // you can check the character set
+    document.write("<br/>Character set: " + document.charset);
+
+    // you can use the data- for custom data attributes, had issues using uppercase in middle of word?
+    var div = document.getElementById("myid");
+    document.write("<br/>Custom attribute: " + div.dataset.number);
+    document.write("<br/>Custom attribute: " + div.dataset.name);
+</script>
+
+<script>
+    var content = document.getElementById("content");
+    document.write("<br/>innerHTML: " + content.innerHTML);
+    document.write("<br/>outerHTML: " + content.outerHTML);
+    content.insertAdjacentHTML("beforebegin", "<p>hello world 1</p>");
+    content.insertAdjacentHTML("afterbegin", "<p>hello world 2</p>");
+    content.insertAdjacentHTML("beforeend", "<p>hello world 3</p>");
+    content.insertAdjacentHTML("afterend", "<p>hello world 4</p>");
+</script>
+
+</body>
+</html>
