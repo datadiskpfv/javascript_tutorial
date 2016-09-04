@@ -6,5 +6,95 @@
 </head>
 <body>
 
+<div id="div1">Hello World</div>
+
+<!-- Simple buttons-->
+<input id="btn1" type="button" value="Click me one" onclick="alert('clicked')" /><br/><br/>
+<input id="btn2" type="button" value="Click me two" onclick="alert(this.value)" /><br/><br/>
+
+<!-- Standard way to assign button to function-->
+<input id="btn3" type="button" value="Click me three" onclick="func1()" /><br/><br/>
+<input id="btn4" type="button" value="Click me four" onclick="func2()" /><br/><br/>
+
+<!--We will manually add the function to the onclick event-->
+<input id="btn5" type="button" value="Click me five" /><br/><br/>
+
+<!-- Might be best to enclose in try and catch block, notice calling a function that does not exist -->
+<input id="btn6" type="button" value="Click me six" onclick="try{func3();}catch(ex){alert('caught error');}"/><br/><br/>
+
+<script>
+    var text1 = document.getElementById("div1");
+
+    function func1() {
+        this.value1 = "this.value";
+        text1.innerHTML = "Goodbye World!! - (this.value: " + this.value1 + ")";
+    }
+
+    function func2() {
+        text1.innerHTML = "Hello World!! - (event type: " + event.type + ")";
+    }
+
+    var btn1 = document.getElementById("btn5");
+    btn1.onclick = function(){
+        text1.innerHTML = "this is button five";
+        };
+</script>
+
+<!-- DOM 2 event listeners -->
+<input id="btn7" type="button" value="Click me seven" /><br/><br/>
+
+<script>
+    var btn7 = document.getElementById("btn7");
+    //  you can even add multiple listeners, which will be execute one after another
+    // IE also has attachEvent() and detachEvent(), but use onclick for first element, this also has different scope level
+    btn7.addEventListener("click", function() { alert("This is button seven - part one");}, false);
+    btn7.addEventListener("click", function() { alert("This is button seven - part two");}, false);
+
+    // added extra but them removed it to prove you can remove listeners as well as add them
+    // you have to pass the same arguments in to remove the listener
+    var handler = function() { alert("This is button seven - part three");}
+    btn7.addEventListener("click", handler, false);
+    btn7.removeEventListener("click", handler, false);
+</script>
+
+<!-- Cross browser event listeners -->
+<input id="btn8" type="button" value="Click me eight" /><br/><br/>
+
+<script>
+    // for cross browser event handlers you could create a function to handle different browsers like below
+    var EventUtil = {
+
+        addHandler: function(element, type, handler){
+            if (element.addEventListener){
+                element.addEventListener(type, handler, false);
+            } else if (element.attachEvent) {
+                element.attachEvent("on" + type, handler);
+            } else {
+                element["on" + type] = handler;
+            }
+        },
+
+        removeHandler: function(element, type, handler){
+            if (element.removeEventListener){
+                element.removeEventListener(type, handler, false);
+            } else if (element.detachEvent) {
+                element.detachEvent("on" + type, handler);
+            } else {
+                element["on" + type] = null;
+            }
+        },
+    }
+
+    var btn8 = document.getElementById("btn8");
+    var handler2 = function() {
+        alert("This is button eight");
+    };
+
+    EventUtil.addHandler(btn8, "click", handler2);
+
+    // to remove uncomment below
+    //EventUtil.removeHandler(btn8, "click", handler2);
+</script>
+
 </body>
 </html>
