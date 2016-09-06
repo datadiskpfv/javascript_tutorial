@@ -13,7 +13,7 @@
             var svg = document.getElementById("svg");
             alert("prefix: " + svg.lookupPrefix('http://www.w3.org/2000/svg'));
 
-            var ns = document.getElementsByTagNameNS('s', 's');
+            var ns = document.getElementsByTagNameNS('s', 's:svg');
             alert(ns.length);
 
             var rect = document.getElementById("rect");
