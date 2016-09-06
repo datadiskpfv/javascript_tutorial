@@ -23,7 +23,7 @@
     var button = document.getElementById("mybutton");
     button.focus();
     document.write("<br/><br/>");
-    document.write("button focus: " + document.activeElement === button);
+    document.write("button focus: " + (document.activeElement === button).toString());
 
     // you can see if the page has loaded, you can also use complete
     if (document.readyState == "loading"){
@@ -60,7 +60,7 @@
 
 <script>
     // make sure that scroll1 is in view
-    // other scrollings - scrollIntoViewIfNeeded, scrollByLines, scrollByPages
+    // other scrolling's - scrollIntoViewIfNeeded, scrollByLines, scrollByPages
     var scroll = document.getElementById("scroll1");
     scroll.scrollIntoView();
 </script>
