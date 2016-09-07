@@ -30,12 +30,28 @@
     var worldNode = oP1.lastChild;
 
     // now we are going to extract parts of the element
+    // setStart (node, offsetInsideNode)
+    // setEnd (node, offsetInsideNode)
+
+    // range
+    // hello world!             based on getting the element with id = p1
+
+    // setStart      setEnd
+    // hello          world!            this includes a space at position 0
+    // 01234         0123456
+
+    // setStart2      setEnd3
+    //    llo         wo                so answer is llo wo
     var range = document.createRange();
-    range.setStart(helloNode, 2);
-    range.setEnd(worldNode, 3);
+    range.setStart(helloNode, 2);                   // llo
+    range.setEnd(worldNode, 3);                     //  wo          includes space at front
     document.write("range: " + range + "<br/>");
 
-    // now we can join the parts
+    // now we can extract from the original text that is displayed in the browser
+    // so the div text becomes Herld!
+    //
+    // extractContents() is similar to deleteContents(). It also removes the range selection from the document and
+    // returns the range's document fragment as the function value
     oP1.parentNode.appendChild(range.extractContents());
 
     // inserting

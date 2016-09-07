@@ -19,13 +19,22 @@
     // first test that the browser supports Traversals, Node Iterator and Tree Walker
     document.write("Traversal supported : " + document.implementation.hasFeature("Traversal", "2.0") + "<br/>");
     document.write("Node Iterator supported : " + (typeof document.createNodeIterator == 'function') + "<br/>");
-    document.write("Tree Walker supported : " + (typeof document.createTreeWalker == 'function') + "<br/>");
+    document.write("Tree Walker supported : " + (typeof document.createTreeWalker == 'function') + "<br/><br/>");
 </script>
 
 <script>
     // NodeIterator
     var div1 = document.getElementById("div1");
 
+    // createNodeIterator(RootNode, WhatToShow, Filter, EntityReferenceExpansion)
+    /*
+     * rootnode                     - The root element or node to start traversing on.
+     * whattoshow                   - The type of nodes or elements to appear in the node list (there are lots of these)
+     * Filter                       - A custom NodeFilter function to use
+     * EntityReferenceExpansion     - A flag that specifies whether entity reference nodes are expanded
+    */
+
+    // see below for custom filter
     var iterator = document.createNodeIterator(div1, NodeFilter.SHOW_ELEMENT, null, false);
     var node = iterator.nextNode();
     while ( node !== null){
