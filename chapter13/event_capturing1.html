@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Capturing 1</title>
+
+    <style>
+        .divStyle {
+            display: table-cell;
+            border:5px solid black;
+            padding:20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+  <div id="DIV1" class="divStyle">
+      DIV1
+      <div id="DIV2" class="divStyle">
+          DIV2
+          <div id="DIV3" class="divStyle">
+              DIV3
+          </div>
+      </div>
+  </div>
+
+<script type="text/javascript">
+
+    // event capturing is not supported in IE < 8
+    var divs = document.getElementsByTagName("div");
+
+    for(var i=0; i < divs.length; i++){
+        // if set to false event bubbling is enabled
+        // if set to true event capturing is enabled (opposite to bubbling)
+        divs[i].addEventListener("click",clickHandler, true );
+
+        // to enable both event bubbling and event capturing you need both even handlers
+        // divs[i].addEventListener("click",clickHandler, false );
+
+    }
+
+    function clickHandler() {
+        alert(this.getAttribute("id") + " - click event handled");
+    }
+</script>
+
+</body>
+</html>

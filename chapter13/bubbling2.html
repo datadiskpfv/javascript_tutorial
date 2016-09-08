@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bubbling 1</title>
+    <style>
+        .imgStyle
+        {
+           height:100px;
+           width:100px;
+           border:3px solid grey;
+        }
+    </style>
+</head>
+<body>
+   <img height="540px" width="540px" style="border:3px solid grey"
+        src="images/Chrysanthemum.jpg" id="mainImage" />
+   <br/>
+
+   // we use bubbling to capture all the images via the div element, other we would have to
+   // use a onclick for each image element
+   <div id="myDiv" onclick="changeImage(event)">
+       <image class="imgStyle" src="images/Chrysanthemum.jpg" />
+       <image class="imgStyle" src="images/Desert.jpg" />
+       <image class="imgStyle" src="images/Hydrangeas.jpg" />
+       <image class="imgStyle" src="images/Jellyfish.jpg" />
+       <image class="imgStyle" src="images/Koala.jpg" />
+   </div>
+
+   <script>
+       var images = document.getElementById("myDiv").getElementsByTagName("img");
+
+       for(var i = 0; i < images.length; i++){
+           images[i].onmouseover = function(){
+               this.style.cursor = 'hand';
+               this.style.borderColor = 'red';
+           }
+
+           images[i].onmouseout = function(){
+               this.style.cursor = 'pointer';
+               this.style.borderColor = 'grey';
+           }
+       }
+
+       function changeImage(event){
+           // window.event is used by older browsers (IE < 8)
+           event = event || window.event;
+
+           // event.srcElement is used by older browsers (IE < 8)
+           var targetElement = event.target || event.srcElement;
+
+           if (targetElement.tagName == 'IMG'){
+               // because we used bubbling we need to get the image that we click on source thus
+               // get the name of the image file
+               document.getElementById("mainImage").src = targetElement.getAttribute("src");
+           }
+       }
+   </script>
+
+</body>
+</html>
