@@ -2,9 +2,101 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Event Objects</title>
 </head>
 <body>
+
+<div id="mydiv"></div><br/>
+
+<input type="button" value="Button One" id="btn1" onclick="handler()"><br/><br/>
+
+<input type="button" value="Button Two" id="btn2"><br/><br/>
+
+<input type="button" value="Button Three" id="btn3"><br/><br/>
+
+<input type="button" value="Button Four" id="btn4"><br/><br/>
+
+
+<script>
+    // this example assigns the function inside the html
+    var mydiv = document.getElementById("mydiv");
+
+    function handler() {
+        // window.event.srcElement is same as event.target (some older browsers don't support this)
+        mydiv.innerHTML = "Event Type: " + event.type + "<br/>Return Value: " + event.returnValue +
+                "<br/>Event src: " + window.event.srcElement +
+                "<br/>Event target:" + event.target + "<br/><br/>";
+    }
+</script>
+
+<script>
+    // this example assign the function inside the DOM
+    var mydiv = document.getElementById("mydiv");
+    var btn2 = document.getElementById("btn2");
+
+    var handler2 = function() {
+        mydiv.innerHTML = "Button two";
+    }
+
+    btn2.onclick = handler2;
+</script>
+
+<script>
+    // this example shows you what you can do with events
+    var mydiv = document.getElementById("mydiv");
+    var btn3 = document.getElementById("btn3");
+
+    // as you can see you can create as complex handlers as you wish
+    var handler3 = function(event){
+        switch(event.type){
+            case "click":
+                mydiv.innerHTML = "Button three clicked";
+                break;
+            case "mouseover":
+                event.target.style.backgroundColor = "red";
+                event.target.style.color = "yellow";
+                break;
+            case "mouseout":
+                event.target.style.backgroundColor = "black";
+                event.target.style.color = "white";
+                break;
+        }
+    };
+
+    // now assign the handler to the button events
+    btn3.onclick = handler3;
+    btn3.onmouseover = handler3;
+    btn3.onmouseout = handler3;
+</script>
+
+<script>
+    // you can assign and onclick event to the body of a document.
+    // you can use event.stopPropagation() (or event.cancelBubble for older browsers) method to stop event bubbling
+    // see below for bubbling and event phases
+    document.body.onclick = function() {
+        alert("This is the body onclick");
+    }
+</script>
+
+<script>
+    var mydiv = document.getElementById("mydiv");
+
+    // the below demonstrates the events phases
+    var btn4 = document.getElementById("btn4");
+    btn4.onclick = function(event){
+        alert("Event Phase (button onclick): " + event.eventPhase); //2 this, target and currentTarget are all equal in this phase
+
+        // you can use window.event.srcElement to obtain the scope
+        alert("srcElement === this? " + (window.event.srcElement === this));
+    };
+    document.body.addEventListener("click", function(event){
+        alert("Event Phase (document body): " + event.eventPhase); //1
+    }, true);
+    document.body.onclick = function(event){
+        alert("Event Phase (document body onclick): " + event.eventPhase); //3
+    };
+
+</script>
 
 </body>
 </html>
