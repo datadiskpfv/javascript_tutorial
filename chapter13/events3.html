@@ -28,18 +28,16 @@ going to be using the onscroll event as well
 <br/>
 
 <form>
-    First name:<br>
     <!-- onfocus and onblur don't bubble up-->
     <!-- you also have focusout and focusin which do bubble up-->
-    <input type="text" name="firstname" id="firstname" onfocus="checkFocus(event)" onblur="checkBlur()" onclick="showCoords()">
+    First name: <input type="text" name="firstname" id="firstname" onfocus="checkFocus(event)" onblur="checkBlur()" onclick="showCoords()">
     Checking onfocus and onblur and will also display client and page coordinates below<br>
 </form>
-<br/>
 <br/>
 
 <div id="clientcoords"></div>
 <div id="pagecoords"></div>
-<br/>
+<div id="screencoords"></div>
 <br/>
 
 <script type="text/javascript">
@@ -57,11 +55,13 @@ going to be using the onscroll event as well
     function showCoords() {
         var clientcoords = document.getElementById("clientcoords");
         var pagecoords = document.getElementById("pagecoords");
+        var screencoords = document.getElementById("screencoords");
 
         // used for browser compatibility
         event = event || window.event;
         clientcoords.innerHTML = "Client coordinates: " + event.clientX + "," + event.clientY;
         pagecoords.innerHTML = "Page coordinates: " + event.pageX + "," + event.pageY;
+        screencoords.innerHTML = "Screen coordinates: " + event.screenX + "," + event.screenY;
     }
 </script>
 

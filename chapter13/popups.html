@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Popup windows</title>
+</head>
+<body>
+<input type="button" value="Open popup one"
+       onclick="window.open('')" /> Opens blank page<br/><br/>
+
+<input type="button" value="Open popup two"
+       onclick="window.open('http://www.datadisk.co.uk', '_blank', 'height=200,width=200')" />
+       opens a small popup window with datadisk.co.uk (_blank)<br><br/>
+
+<input type="button" value="Open popup three"
+       onclick="window.open('http://www.datadisk.co.uk', '_self')" />
+new window replaces current window (_self)<br/><br/>
+
+<input type="button" value="Open popup four"
+       onclick="window.open('http://www.datadisk.co.uk', 'My Window', 'height=200,width=200,top=300,left=400')" />
+specify where you want the wind to be on the screen (default is popup two)<br/><br/>
+
+<!--did not work in chrome-->
+<input type="button" value="Open popup five"
+       onclick="window.open('http://www.datadisk.co.uk', 'My Window', 'height=200,width=200,scrollbars=no,resizable=no')" />
+no scrolling and resizing<br/><br/>
+
+<input type="button" value="Open popup six" onclick="openPopup()"/><br/><br/>
+<input type="button" value="Close popup six" onclick="closePopup()"/>close popup six
+
+<script>
+    var mywindow;
+
+    function openPopup() {
+        mywindow = window.open('htpp://www.datadisk.co.uk', '_blank', 'height=300,width=300');
+    }
+    function closePopup() {
+        mywindow.close();
+    }
+</script>
+
+
+</body>
+</html>
