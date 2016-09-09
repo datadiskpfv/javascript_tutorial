@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Events 3</title>
+    <style onload="alert('loaded style')">
+        .imgStyle
+        {
+            height:100px;
+            width:100px;
+            border:3px solid grey;
+        }
+    </style>
+</head>
+// the onunload may not work in chrome
+<body onload="alert('body loaded')" onunload="alert('Unloaded!')" onresize="alert('resized')">
+
+<div id="mydiv">My Div</div>
+
+<image id="img1" src="images/Desert.jpg" class="imgStyle" onload="alert('image loaded')"/>
+<br/>
+
+<textarea rows="5" cols="20" onscroll="alert('scrolling')">
+this is an example of an text area with multiple lines of input
+going to be using the onscroll event as well
+</textarea>
+<br/>
+<br/>
+
+<form>
+    First name:<br>
+    <!-- onfocus and onblur don't bubble up-->
+    <!-- you also have focusout and focusin which do bubble up-->
+    <input type="text" name="firstname" id="firstname" onfocus="checkFocus(event)" onblur="checkBlur()" onclick="showCoords()">
+    Checking onfocus and onblur and will also display client and page coordinates below<br>
+</form>
+<br/>
+<br/>
+
+<div id="clientcoords"></div>
+<div id="pagecoords"></div>
+<br/>
+<br/>
+
+<script type="text/javascript">
+    function checkFocus(event){
+        var firstname = document.getElementById("firstname");
+        firstname.style.backgroundColor = "red";
+    }
+
+    function checkBlur(){
+        var firstname = document.getElementById("firstname");
+        firstname.style.backgroundColor = "green";
+    }
+
+    // used with the onclick event
+    function showCoords() {
+        var clientcoords = document.getElementById("clientcoords");
+        var pagecoords = document.getElementById("pagecoords");
+
+        // used for browser compatibility
+        event = event || window.event;
+        clientcoords.innerHTML = "Client coordinates: " + event.clientX + "," + event.clientY;
+        pagecoords.innerHTML = "Page coordinates: " + event.pageX + "," + event.pageY;
+    }
+</script>
+
+
+<script type="text/javascript" onload="alert('script loaded')">
+    // determine if the browser had DOM level 2 events
+    document.write("HTMLEvents - 2.0: " + document.implementation.hasFeature("HTMLEvents", "2.0") + "<br/>");
+
+
+    // determine if the browser has DOM level 3 events
+    document.write("UIEvents - 3.0: " + document.implementation.hasFeature("UIEvent", "3.0") + "<br/>");
+
+    // determine if the browser has support for focus events
+    document.write("Focus events: " + document.implementation.hasFeature("FocusEvent", "3.0") + "<br/>");
+
+    // determine if browser has support for mouse events
+    document.write("Mouse events - 2.0: " + document.implementation.hasFeature("MouseEvents", "2.0") + "<br/>");
+    document.write("Mouse events - 3.0: " + document.implementation.hasFeature("MouseEvents", "3.0") + "<br/>");
+</script>
+
+</body>
+</html>
