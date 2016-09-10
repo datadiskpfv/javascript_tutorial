@@ -2,9 +2,66 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Events Two</title>
 </head>
 <body>
+
+<div id="mydiv"></div>
+<input type="button" id="btn" value="Click Me" onclick="keyCheck(event)" />
+
+<script>
+    // determine if a modifier key is also pressed
+    var mydiv = document.getElementById("mydiv");
+
+    function keyCheck(event) {
+        if (event.shiftKey) {
+            mydiv.innerHTML = "Shift key is pressed";
+        }
+        else if (event.altKey) {
+            mydiv.innerHTML = "altkey key is pressed";
+        }
+        else if (event.ctrlKey) {
+            mydiv.innerHTML = "ctrl key is pressed";
+        }
+        else {
+            mydiv.innerHTML = "No modifier key is pressed";
+        }
+    }
+</script>
+
+<div id="mydiv2">This should change the font with the movement of the
+the mouse wheel, so give it a try</div>
+<br/>
+<br/>
+
+<div id="mydiv3" onwheel="myFunction()">this is the second test, this should change the font with the movement of the
+    the mouse wheel, so give it a try</div>
+<br/>
+<br/>
+<script>
+    document.getElementById("mydiv2").addEventListener("wheel", myFunction);
+
+    function myFunction() {
+        this.style.fontSize = "35px";
+    }
+</script>
+
+<div id="keypressed"></div>
+
+<script>
+    var keypressed = document.getElementById("keypressed");
+    function keyPressed() {
+        if (event.keyCode) {
+            switch keyCode.valueOf()
+                case: 8
+                        keypressed.innerHTML = "Backspace pressed";
+                        break;
+                default:
+                         keypressed.innerHTML = "Nothing pressed yet";
+
+        }
+    }
+</script>
 
 </body>
 </html>
