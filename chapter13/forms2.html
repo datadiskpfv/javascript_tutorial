@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forms Two</title>
+</head>
+<body>
+Select Box:&nbsp
+<select id="selectbox1">
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="mercedes">Mercedes</option>
+    <option value="audi">Audi</option>
+</select>
+<br/>
+<br/>
+<div id="mydiv1"></div>
+
+<script>
+    var selectbox1 = document.getElementById("selectbox1");
+
+    // you can get the text and value
+    document.getElementById("mydiv1").innerHTML = "Selections: " +
+    selectbox1.options[0].text + " " +
+    selectbox1.options[0].value + " " +
+    selectbox1.options[1].text + " " +
+    selectbox1.options[1].value;
+
+    // you can select a default
+    selectbox1.options[3].selected = true;
+
+    // add an option to the test box
+    var newOption1 = document.createElement("option");
+    newOption1.appendChild(document.createTextNode("Ford"));
+    newOption1.setAttribute("value", "ford");
+    selectbox1.appendChild(newOption1);
+
+    // use add option to archive the above (you can also remove an option)
+    var newOption2 = new Option("BMW", "bmw");
+    selectbox1.add(newOption2);
+
+    // move a option
+    var optionToMove = selectbox1.options[5];    // this should be BMW
+    selectbox1.insertBefore(optionToMove, selectbox1.options[optionToMove.index -5]); // lets move to top
+
+</script>
+
+</body>
+</html>

@@ -8,7 +8,7 @@
 
 <form id="myform">
     First Name:<br/>
-    <input type="text" id="firstName" onfocus="validateFirstName(event)" onblur="validateFirstName(event)"><br/>
+    <input type="text" id="firstName" onfocus="validateFirstName(event)" onblur="validateFirstName(event)" required>  <span id="firstNameError"></span><br/>
     Last Name:<br/>
     <input type="text" id="lastName" onfocus="validateLastName(event)"><br/><br/>
     <input type="submit" value="Submit form">
@@ -73,6 +73,11 @@ Number: <input type="text" size="6" id="nextID" maxlength=6 onkeyup="moveOnMax(t
 
     function validateFirstName(event){
 
+        // you can check that a field is required
+        var isRequired = form1.elements["firstName"].required;
+        document.getElementById("firstNameError").innerHTML = "First Name is required";
+        document.getElementById("firstNameError").style.color = "red";
+
         if (event.type == 'focus') {
             document.getElementById("mydiv4").innerHTML = "Event Type: " + event.type;
             form1.elements["firstName"].style.backgroundColor = "yellow";
@@ -101,6 +106,27 @@ Number: <input type="text" size="6" id="nextID" maxlength=6 onkeyup="moveOnMax(t
     }
 
 </script>
+<br/>
+<br/>
+Check that a number is valid<br/>
+<input id="id1" type="number" min="100" max="300" required> <span id="numberCheckError"></span><br/><br/>
+<input type="button" value="Check Number" onclick="checkNumber()">
 
+<p id="demo"></p>
+
+<script>
+    function checkNumber() {
+        var chkNum = document.getElementById("id1");
+        if (chkNum.checkValidity() == false) {
+            document.getElementById("numberCheckError").innerHTML = chkNum.validationMessage;
+            document.getElementById("numberCheckError").style.color = "red";
+        }
+
+        // get a more specific reason
+        if(chkNum.validity.rangeUnderflow == true || chkNum.validity.rangeOverflow) {
+            alert("Your number is under 100 or above 300");
+        }
+    }
+</script>
 </body>
 </html>
