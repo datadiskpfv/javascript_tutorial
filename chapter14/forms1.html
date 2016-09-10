@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forms One</title>
+</head>
+<body>
+
+<form id="myform">
+    First Name:<br/>
+    <input type="text" id="firstName" onfocus="validateFirstName(event)" onblur="validateFirstName(event)"><br/>
+    Last Name:<br/>
+    <input type="text" id="lastName" onfocus="validateLastName(event)"><br/><br/>
+    <input type="submit" value="Submit form">
+    <input type="reset" value="Reset form">
+</form>
+<br/>
+<div id="mydiv4">mydiv4</div>
+
+<br/>
+<br/>
+<div id="mydiv1"></div><br/>
+
+<input type="button" value="Get form elements" onclick="getElements(event)"><br/>
+<div id="mydiv2"></div>
+<div id="mydiv3"></div>
+
+<br/>
+<br/>
+<form id="radiogroup" onclick="radioCheck()">
+    <input type="radio" name="gender" value="male"> Male<br>
+    <input type="radio" name="gender" value="female"> Female<br>
+    <input type="radio" name="gender" value="other"> Other
+</form>
+<div id="mydiv5">mydiv5</div>
+
+<br/>
+<br/>
+
+Automatically Tab across when the maximum length has been hit<br/>
+Country Code: <input type="text" size="3" id="countryfield" maxlength=3 onkeyup="moveOnMax(this,'testfield')"/>
+Area Code: <input type="text" size="5" id="testfield" maxlength=5 onkeyup="moveOnMax(this,'nextID')"/>
+Number: <input type="text" size="6" id="nextID" maxlength=6 onkeyup="moveOnMax(this,'countryfield')"/>
+
+<script>
+    var mydiv1 = document.getElementById("mydiv1");
+
+    var form1 = document.forms["myform"];
+
+    mydiv1.innerHTML = "form1 length: " + form1.length;
+
+    // set some defaults
+    form1.elements["firstName"].value = "Paul";
+    form1.elements["lastName"].value = "Valle";
+
+    // see what type of field, fields could be the following
+    // disabled, form, name, readOnly, tabIndex, type, value
+    document.getElementById("mydiv3").innerHTML = "Type: " + form1.elements["firstName"].type;
+
+    // submit the form
+    //form1.submit();
+
+    // reset the form
+    //form1.reset();
+
+    function getElements(event) {
+        var field1 = form1.elements["firstName"].value;
+        var field2 = form1.elements[1].value;
+
+        document.getElementById("mydiv2").innerHTML = "Field 1: " + field1;
+        document.getElementById("mydiv3").innerHTML = "Field 2: " + field2;
+    }
+
+    function validateFirstName(event){
+
+        if (event.type == 'focus') {
+            document.getElementById("mydiv4").innerHTML = "Event Type: " + event.type;
+            form1.elements["firstName"].style.backgroundColor = "yellow";
+        }
+        else if (event.type == 'blur') {
+            document.getElementById("mydiv4").innerHTML = "Event Type: " + event.type;
+            form1.elements["firstName"].style.backgroundColor = "green";
+        }
+    }
+
+    function validateLastName(event){
+        form1.elements["lastName"].style.backgroundColor = "yellow";
+    }
+</script>
+
+<script>
+
+    function radioCheck() {
+        document.getElementById("mydiv5").innerHTML = "Radio group selected: " + document.getElementById('radiogroup')['gender'].value;
+    }
+
+    function moveOnMax(field,nextFieldID){
+        if(field.value.length >= field.maxLength){
+            document.getElementById(nextFieldID).focus();
+        }
+    }
+
+</script>
+
+</body>
+</html>
