@@ -9,6 +9,7 @@
 </head>
 
 <body>
+<h1>check style</h1>
 
 <!-- part one and two will cover the following modules -->
 <!-- DOM Core - build on level 1 core, adding methods and properties to nodes -->
@@ -59,12 +60,18 @@
         document.write( mydiv.style[i] + "&nbsp&nbsp&nbsp" + mydiv.style.getPropertyValue(mydiv.style[i]) + "<br/>");
     }
 
+    document.write("<br/>");
     // you can also use computed styles
     var computedStyle = document.defaultView.getComputedStyle(mydiv, null);
     document.write("Computed background: " + computedStyle.backgroundColor + "<br/>");
     document.write("Computed background: " + computedStyle.width + "<br/>");
     document.write("Computed background: " + computedStyle.height + "<br/>");
-    document.write("Computed background: " + computedStyle.border + "<br/>");
+    document.write("Computed background: " + computedStyle.border + "<br/><br/>");
+
+    // you can also use the getPropertyValue method as well
+    document.write("Computed background: " + computedStyle.getPropertyValue('background-color') + "<br/>");
+    document.write("Computed background: " + computedStyle.getPropertyValue('width') + "<br/>")
+    document.write("<br/>");
 </script>
 
 <script>
@@ -84,13 +91,16 @@
     var rule = rules[0];
     document.write("selectorText: " + rule.selectorText + "<br/>");
     document.write("selectorText: " + rule.cssText + "<br/>");
-    rule.style.backgroundColor = "red";
+
+    // later this rule is overwritten but this does work
+    rule.style.backgroundColor = "light blue";
 
     // insert a rule (use addRule for IE)
-    document.styleSheets[0].insertRule("body {background-color: powderblue;}", 0);
+    sheet.insertRule("body {background-color: white;}", 1);         // the 1 represents where in the css file to place (index)
+    document.write("selectorText: " + rule.cssText + "<br/>");
 
-    // delete rule (use removeRule for IE)
-    document.styleSheets[0].deleteRule(0);
+    // delete rule (use removeRule for IE), just
+    sheet.deleteRule(0);
 </script>
 
 <div id="offsetleft">offset left</div>
@@ -113,7 +123,6 @@
 
     // you can also get the scroll dimensions - will leave that
 </script>
-
 
 </body>
 </html>
