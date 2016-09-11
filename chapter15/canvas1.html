@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas One</title>
+</head>
+<body>
+<div id="mydiv1"></div>
+<!-- added a border to the canvas using style -->
+<canvas id="drawing1" width="200" height="200" style="border:1px solid #000000;">A drawing of something</canvas>
+<canvas id="drawing2" width="200" height="200" style="border:1px solid #000000;">A drawing of something</canvas>
+<canvas id="drawing3" width="200" height="200" style="border:1px solid #000000;">A drawing of something</canvas>
+
+<script>
+    var drawing1 = document.getElementById("drawing1");
+
+    if(drawing1.getContext) {
+        document.getElementById("mydiv1").innerHTML = "Canvas drawing is supported";
+
+        var context = drawing1.getContext("2d");
+
+        // draw a red rectangle
+        context.fillStyle = '#ff0000';
+        context.fillRect(10, 10, 50, 50);
+
+        // draw a blue rectangle that is semi-transparent
+        context.fillStyle = "rgba(0, 0, 255, 0.5)";
+        context.fillRect(30, 30, 50, 50);
+
+        // draw a strokestyle rect
+        context.strokeStyle = '#ff0000';
+        context.strokeRect(100,100, 50, 50);
+
+        // draw a blue rectangle that is semi-transparent
+        context.strokeStyle = "rgba(0, 0, 255, 0.5)";
+        context.strokeRect(130, 130, 50, 50);
+
+        // you can clear an area
+        context.clearRect(40, 40, 10, 10);
+    }
+</script>
+
+<script>
+    var drawing2 = document.getElementById("drawing2");
+    var context2 = drawing2.getContext("2d");
+
+    // start the beginning path, then draw the outer circle
+    context2.beginPath();
+
+    // first two are start position, then radius of 99 pixels, then start at a angle of 0 radians and draw
+    // all the way around to 2 PI.
+    context2.arc(100, 100, 99, 0, 2 * Math.PI, false);
+
+    // draw the inner circle
+    context2.moveTo(194,100);
+    context2.arc(100, 100, 94, 0, 2 * Math.PI, false);
+
+    // lets draw some hour and minute hands
+    context2.moveTo(100,100);
+    context2.lineTo(100, 20);
+
+    context2.moveTo(100,100);
+    context2.lineTo(35, 100);
+
+    // stroke the path, this part does the actual drawing
+    context2.stroke();
+
+    // lets draw some text, the 12 o'clock
+    context2.font = "bold 14px Arial";
+    context2.textAlign = "center";
+    context2.baseline = "middle";
+    context2.fillText("12", 100, 20);
+
+    // different way to write text
+    context2.fillText("Hello World", 75, 150);
+</script>
+
+<script>
+   var context3 = document.getElementById("drawing3").getContext("2d");
+   var img = new Image();
+
+   img.onload = function () {
+       context3.drawImage(img, 0, 0);
+   };
+
+   img.src = "A_Smiley.jpg"
+</script>
+
+</body>
+</html>
