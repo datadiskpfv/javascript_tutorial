@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error Handling One</title>
+</head>
+<body>
+
+<div id="mydiv1"></div>
+<div id="mydiv2"></div>
+<div id="mydiv3"></div>
+<div id="mydiv4"></div>
+<div id="mydiv5"></div>
+
+<script>
+    var mydiv1 = document.getElementById("mydiv1");
+    var mydiv2 = document.getElementById("mydiv2");
+    var mydiv3 = document.getElementById("mydiv3");
+    var mydiv4 = document.getElementById("mydiv4");
+    var mydiv5 = document.getElementById("mydiv5");
+</script>
+
+<!-- basic try and catch block throwing a TypeError -->
+<script>
+    try {
+        window.someNonexistentFunction();
+        testReturn();
+
+    } catch (error){
+        alert(error.message);
+        // there are TypeError, SyntaxError, URIError, EvalError, RangeError, etc
+        // Error is the base type of all above
+        if (error instanceof TypeError)
+          mydiv1.innerHTML = "Instance of: " + error;
+        testReturn();
+    }
+    // finally will always run bot both success and failure
+    finally {
+        alert("Hello i am finally!!!");
+    }
+
+    function testReturn() {
+        return 0;
+    }
+</script>
+
+<!--Range Error-->
+<script>
+    try {
+        var items = new Array(-20);
+    }
+    catch (error) {
+        if (error instanceof RangeError)
+            mydiv2.innerHTML = "Instance of: " + error;
+    }
+</script>
+
+<!--Reference Error-->
+<script>
+    try {
+        var obj = x;
+    }
+    catch (error) {
+        if (error instanceof ReferenceError)
+            mydiv3.innerHTML = "Instance of: " + error;
+    }
+</script>
+
+<!--Throwing own error, you would do this when something went wrong -->
+<script>
+    try {
+        throw new TypeError("I have manually thrown a Type Error")
+    }
+    catch (error) {
+        mydiv4.innerHTML = "Own thrown error: " + error;
+    }
+
+    // create a custom Error message
+    function CustomError(message) {
+        this.name = "CustomerError";
+        this.message = message
+    }
+
+    // inhert from Error object
+    CustomError.prototype = new Error();
+
+    try {
+        throw new CustomError("I have manually thrown a Custom Error")
+    }
+    catch (error) {
+        mydiv5.innerHTML = "Thrown created Custom Error: " + error;
+    }
+</script>
+
+
+</body>
+</html>

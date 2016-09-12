@@ -81,3 +81,22 @@ if (pattern4.test(text3)) {
     console.log(RegExp.$2);                             // be
     console.log(RegExp.$3);                             // s
 }
+
+// you can also use a RegExp object
+var string1 = "This is the year 2016!!!"
+var string2 = "This is the year 2016!!!"
+var regexp1 = new RegExp("\\d+", "gi");
+var regexp2 = new RegExp("\\d+", "gi");
+
+console.log("\nRegExp object parameters")
+console.log("g = " + regexp1.global);
+console.log("i = " + regexp1.ignoreCase);
+console.log("m = " + regexp1.multiline);
+console.log("source = " + regexp1.source);
+
+// if there was multiple numbers an array would be return
+console.log("year is: " + regexp1.exec(string1));
+
+if( regexp2.test(string2) ){
+    console.log("String2 contains number");
+}
