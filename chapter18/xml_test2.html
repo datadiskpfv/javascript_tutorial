@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cross Browser XML example</title>
+</head>
+<body>
+
+<script>
+    function parseXml(xml){
+        var xmldom = null;
+        if (typeof DOMParser != "undefined"){
+            xmldom = (new DOMParser()).parseFromString(xml, "text/xml");
+            var errors = xmldom.getElementsByTagName("parsererror");
+            if (errors.length){
+                throw new Error("XML parsing error:" + errors[0].textContent);
+            }
+        } else if (typeof ActiveXObject != "undefined"){
+            xmldom = createDocument();
+            xmldom.loadXML(xml);
+            if (xmldom.parseError != 0){
+                throw new Error("XML parsing error: " + xmldom.parseError.reason);
+            }
+        } else {
+            throw new Error("No XML parser available.");
+        }
+        return xmldom;
+    }
+
+    try {
+        xmldom = parseXml("<root><child/></root>");
+        alert(xmldom.documentElement.tagName);
+        alert(xmldom.documentElement.firstChild.tagName); //”child”
+        var anotherChild = xmldom.createElement("child");
+        xmldom.documentElement.appendChild(anotherChild);
+        var children = xmldom.getElementsByTagName("child");
+        alert(children.length); //2
+    } catch (ex){
+        alert(ex.message);
+    }
+</script>
+
+</body>
+</html>

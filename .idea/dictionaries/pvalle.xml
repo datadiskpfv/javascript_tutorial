@@ -1,3 +1,11 @@
 <component name="ProjectDictionaryState">
-  <dictionary name="pvalle" />
+  <dictionary name="pvalle">
+    <words>
+      <w>msxml</w>
+      <w>mydiv</w>
+      <w>onreadystatechange</w>
+      <w>parsererror</w>
+      <w>xmldom</w>
+    </words>
+  </dictionary>
 </component>
