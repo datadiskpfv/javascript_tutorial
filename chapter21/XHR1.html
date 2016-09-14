@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>XHR one</title>
+</head>
+<body>
+<h1>XMLHttpRequest (XHR)</h1>
+<script>
+    function createXHR(){
+        if (typeof XMLHttpRequest != "undefined"){
+            return new XMLHttpRequest();
+        } else if (typeof ActiveXObject != "undefined"){
+            if (typeof arguments.callee.activeXString != "string"){
+                var versions = ["MSXML2.XMLHttp.6.0", "MSXML2.XMLHttp.3.0",
+                            "MSXML2.XMLHttp"],
+                        i, len;
+
+                for (i=0,len=versions.length; i < len; i++){
+                    try {
+                        new ActiveXObject(versions[i]);
+                        arguments.callee.activeXString = versions[i];
+                        break;
+                    } catch (ex){
+                        //skip
+                    }
+                }
+            }
+
+            return new ActiveXObject(arguments.callee.activeXString);
+        } else {
+            throw new Error("No XHR object available.");
+        }
+    }
+
+    // create the XML HTTP request
+    var xhr = createXHR();
+
+    // first call the method open(), which accepts three arguments: the type of request to be sent
+    // (“get”, “post”, and so on), the URL for the request, and a Boolean value indicating if the request should be
+    // sent asynchronously (javascript would not wait until response is back).
+    // the example below prepares a synchronous GET request for example.txt file
+    xhr.open("get", "example.txt", false);
+
+    // now we send the actual request
+    xhr.send(null);
+
+    // you can cancel a request with the below, also dont reuse an aborted request, create a new one,
+    // you may have issues
+    // xhr.abort();
+    // xhr = undefined;
+
+    // when the request returned we can check the status and look at the response that was sent back
+    // the status is the normal HTTP status (200, 300, 304, 401, etc)
+    if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304){
+        alert("Status: " + xhr.status);
+        alert("Status Text: " + xhr.statusText);
+        alert("Response Text back: " + xhr.responseText);
+    } else {
+        alert("Request was unsuccessful: " + xhr.status);
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON one</title>
+</head>
+<body>
+
+<p>This example serializes an object and passes in a filter array.</p>
+<script type="text/javascript">
+    // create a object literal
+    var book = {
+        title: "Professional JavaScript",
+        authors: [ "Nicholas C. Zakas" ],
+        edition: 3,
+        year: 2011
+    };
+
+    // lets stringify the whole object (should see all of the above)
+    var jsonText1 = JSON.stringify(book);
+    alert(jsonText1);
+
+    // will stringify the object but this tile we will filter on title and edition
+    var jsonText2 = JSON.stringify(book, ["title", "edition"]);
+    alert(jsonText2);
+
+    // you can use a function to filter
+    // remember that a undefined property will not be return, notice "edition" won't be returned
+    var jsonText3 = JSON.stringify(book, function(key, value){
+        switch(key){
+            case "authors":
+                return value.join(",")
+            case "year":
+                return 5000;
+            case "edition":
+                return undefined;
+            default:
+                return value;
+        }
+    });
+    alert(jsonText3);
+
+    // the third argument allows you to use some formatting, here we are saying
+    // indent by 4 each level, a newline is also added (10 is the max value)
+    var jsonText4 = JSON.stringify(book, null, 4);
+    alert(jsonText4);
+
+    // you can also replace the number with a string for example "--" which would indent using that string
+    var jsonText5 = JSON.stringify(book, null, "--");
+    alert(jsonText5);
+
+    // finally you can use a toJSON method to return things, it acts like a toString
+    var book2 = {
+        title: "Professional JavaScript",
+        authors: [ "Nicholas C. Zakas" ],
+        edition: 3,
+        year: 2011,
+        toJSON: function(){
+            // you are returning a simple string object
+            return this.title + " - " + this.year;
+        }
+    };
+    var jsonText5 = JSON.stringify(book2);
+    alert(jsonText5);
+
+    // lastly, The JSON.parse() method also accepts an additional argument, which is a function that is called
+    // on each key-value pair. The function is called a reviver function to distinguish it from the replacer
+    // (filter) function that JSON.stringify() accepts
+    var book3 = {
+        "title": "Professional JavaScript",
+        "authors": ["Nicholas C. Zakas"],
+        edition: 3,
+        year: 2011,
+        releaseDate: new Date(2011, 11, 1)
+    };
+    var jsonText6 = JSON.stringify(book3);
+    var bookCopy = JSON.parse(jsonText6, function(key, value){
+        if (key == "releaseDate"){
+            return new Date(value);
+        } else {
+            return value;
+        }
+    });
+    alert(bookCopy.releaseDate.getFullYear());
+</script>
+
+</body>
+</html>
