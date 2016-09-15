@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rich Text Editing</title>
+</head>
+<!-- you can make the whole body editable-->
+<body contenteditable="true" onload="load()">
+
+hello
+
+<!-- you can make just an element editable-->
+<div id="mydiv1">
+    This text should be editable, give it a go!!
+</div>
+
+<!-- or create a iframe that is editable-->
+<iframe name="richedit" style="height: 200px; width: 200px" src="blank.html">
+</iframe>
+<script>
+    function load(){
+        window.document.designMode = "On";
+    }
+
+    document.designMode = "on";
+    frames["richedit"].document.designMode = "on";
+</script>
+
+<script>
+    var mydivd = document.getElementById("mydiv1");
+    mydiv1.contentEditable = "true";
+
+    document.execCommand('bold', false, null);
+
+    alert("Document bold: " + document.queryCommandState("bold"));
+</script>
+
+</body>
+</html>

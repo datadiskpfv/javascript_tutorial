@@ -56,9 +56,42 @@
         alert("Status: " + xhr.status);
         alert("Status Text: " + xhr.statusText);
         alert("Response Text back: " + xhr.responseText);
+
+        // you can also retrieve the response headers as well
+        alert("Headers: \n\n" + xhr.getAllResponseHeaders());
     } else {
         alert("Request was unsuccessful: " + xhr.status);
     }
+
+    // you can also attache request header which should be attached between opening and sending
+    // below is an example custom header request
+    // xhr.setRequestHeader("MyHeader", "MyValue");
+
+    // you can retrieve customer headers as per below
+    // var myHeader = xhr.getResponseHeader("MyHeader");
+
+
+    //
+    // The following function helps to add query-string arguments to the end of an existing URL:
+    function addURLParam(url, name, value) {
+      url += (url.indexOf("?") == -1 ? "?" : "&");
+      url += encodeURIComponent(name) + "=" + encodeURIComponent(value);
+      return url;
+    }
+    //
+     var url = "example.php";
+    //
+    // add the arguments
+    url = addURLParam(url, "name", "Nicholas");
+    url = addURLParam(url, "book", "Professional JavaScript");
+    //
+    // so the above example would look like below when sending
+    // xhr.open("get", "example.php?name1=value1&name2=value2", true);
+    //
+    // initiate request
+    document.write("URL: " + url);
+
+    // see XHR2 for post requests
 
 </script>
 </body>
