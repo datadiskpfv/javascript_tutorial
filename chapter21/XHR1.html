@@ -42,6 +42,12 @@
     // the example below prepares a synchronous GET request for example.txt file
     xhr.open("get", "example.txt", false);
 
+     // you can set a timeout variable and then when call a function when it times out
+    xdr.timeout = 1000;
+    xdr.ontimeout = function(){
+        alert(“Request took too long.”);
+    };
+
     // now we send the actual request
     xhr.send(null);
 
