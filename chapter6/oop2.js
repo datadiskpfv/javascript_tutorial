@@ -87,7 +87,7 @@ person5.age = 44;
 
 
 // now we read from the instance property not the prototype property
-// the way it works is that javascriot first checks to see if there is a instance property set, if so then return this,
+// the way it works is that javascript first checks to see if there is a instance property set, if so then return this,
 // if not then it checks the prototype for the property and return this value.
 console.log(person5.sayName());         // returns the instance property value
 console.log(person5.job);               // as we have not set this it returns the prototype property value

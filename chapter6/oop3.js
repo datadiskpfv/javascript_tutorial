@@ -78,7 +78,7 @@ console.log("Your name is " + person4.sayName() + " and you are " + person4.age 
  * Durable constructor pattern
  */
 
-// the durable pattern does not have public properties and does not referrence this, you can only access the properties
+// the durable pattern does not have public properties and does not reference this, you can only access the properties
 // via its own
 function Person3(name, age, job) {
 

@@ -38,9 +38,9 @@ console.log(instance.getSubValue());
 
 
 // the relationship is that instance is an instanceof Object, SuperType and SubType
-console.log(instance instanceof Object);
-console.log(instance instanceof SuperType);
-console.log(instance instanceof SubType);
+console.log(instance instanceof Object);            // true
+console.log(instance instanceof SuperType);         // true
+console.log(instance instanceof SubType);           // true
 
 // you can override existing SuperType function
 SubType.prototype.getSuperValue  = function() {
@@ -106,5 +106,3 @@ console.log(instance2.sayName() + " age: " + instance2.age);
 console.log(instance2.colors);
 console.log("SuperType2 proto: " + SuperType2.__proto__.__proto__);
 console.log("SubType2 proto: " + SubType2.__proto__.__proto__);
-
-
