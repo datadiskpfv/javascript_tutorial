@@ -16,7 +16,7 @@ var sum2 = function (num1, num2) {
 
 var sum3 = new Function("num1", "num2", "return num1 + num2");      // not recommended - bad performance
 
-// becuase functions are objects you can have multiple names for the same function
+// because functions are objects you can have multiple names for the same function
 function sum4 (num1, num2) {
     return num1 + num2;
 }
@@ -72,7 +72,7 @@ console.log(sum4.length);
 
 // you can use two methods called apply() and call()
 // apply() -  has two arguments the value of this and an array of arguments (or can be arguments object)
-// call() - has two arguments the value of this and the remainging arguments are passed directly
+// call() - has two arguments the value of this and the remaining arguments are passed directly
 
 // with apply and call its the ability to pass this into the function that can help
 function sum6(num1, num2) {

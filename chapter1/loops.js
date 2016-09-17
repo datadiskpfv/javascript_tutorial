@@ -25,7 +25,7 @@ for ( var y = 0; y < 11; y++) {
 
 // a for in loop used by many programming languages
 process.stdout.write("\n");
-array1 = [101, 102, 103, 104, 105]
+array1 = [101, 102, 103, 104, 105];
 for ( var x in array1 ) {
     process.stdout.write(x.toString() + ' ');
 }

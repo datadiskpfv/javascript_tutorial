@@ -11,7 +11,7 @@ console.log("mixed[3]: " + mixed[3]);
 var largeArray = new Array(100);
 console.log("large array size: " + largeArray.length);
 
-// you can also obmit the new keyword and still create an array
+// you can also omit the new keyword and still create an array
 var noNew = Array("red", 1, "blue", 2, "green", 3);
 console.log("noNew[3]: " + noNew[3]);
 

@@ -13,7 +13,7 @@ if ( num1 > 4 ) {
 console.log("num1: " + num1);
 console.log("num2: " + num2);
 
-// the for has affected the gloabl i, even through i specified var in for loop
+// the for has affected the global i, even through i specified var in for loop
 var i = 0;
 for (var i=0; i < 5; i++) {
     console.log("for loop i " + i.toString());
@@ -21,7 +21,7 @@ for (var i=0; i < 5; i++) {
 console.log("global i: " + i.toString());
 
 // functions are different see notice global num2 is unaffected, remember the pass by value for
-// primivate types (see functions2.js)
+// primitive types (see functions2.js)
 var num2 = 0;
 function test(num2) {
     num2 = num2 + 10;

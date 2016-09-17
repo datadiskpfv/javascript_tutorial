@@ -2,6 +2,10 @@
  * Created by vallep on 19/08/2016
  */
 
+/*
+ *  There are 6 primitive data types: string, number, boolean, null, undefined,
+ */
+
 var s1 = "some text";
 s1.color = "red";                   // wont set color value (not a ref type)
 console.log(s1);

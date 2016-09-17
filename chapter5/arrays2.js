@@ -11,7 +11,7 @@ console.log(colors);
 
 var item = colors.pop();    // pop element from end of array
 console.log(colors);
-console.log(item);
+console.log(item);          // item that you popped off
 
 // queue (using push and shift)
 var colors2 = ["red", "blue", "green"];
@@ -21,7 +21,7 @@ console.log(colors2);
 
 var item2 = colors2.shift();    // pop element from end of array
 console.log(colors2);
-console.log(item2);
+console.log(item2);             // item that was shifted off
 
 // reverse an array
 var numbers1 = [1, 2, 3, 4, 5];

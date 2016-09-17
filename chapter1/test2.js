@@ -16,8 +16,8 @@ console.log(age);
 
 // javascript has normal bitwise operators, *, +, /, -, >, <, >=, <=, == and !=
 
-// the indentical operator
-console.log(55 === 55);             // true both are indentical
+// the identical operator
+console.log(55 === 55);             // true both are identical
 console.log("55" === 55);           // false as one is string and one is number
 
 var test1 = true;
