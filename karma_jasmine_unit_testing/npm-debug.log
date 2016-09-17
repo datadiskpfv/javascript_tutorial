@@ -2,24 +2,75 @@
 1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
 1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
 1 verbose cli   'install',
-1 verbose cli   'karma-jasmine',
+1 verbose cli   'karma-chrome',
 1 verbose cli   '--save-dev' ]
 2 info using npm@1.4.28
 3 info using node@v0.10.36
 4 verbose node symlink C:\Program Files\nodejs\\node.exe
-5 error Failed to parse json
-5 error Unexpected token _
-6 error File: C:\Users\pvalle\WebstormProjects\javascript_tutorial\karma_jasmine_unit_testing\package.json
-7 error Failed to parse package.json data.
-7 error package.json must be actual JSON, not just JavaScript.
-7 error
-7 error This is not a bug in npm.
-7 error Tell the package author to fix their package.json file. JSON.parse
-8 error System Windows_NT 6.1.7601
-9 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "karma-jasmine" "--save-dev"
-10 error cwd C:\Users\pvalle\WebstormProjects\javascript_tutorial\karma_jasmine_unit_testing
-11 error node -v v0.10.36
-12 error npm -v 1.4.28
-13 error file C:\Users\pvalle\WebstormProjects\javascript_tutorial\karma_jasmine_unit_testing\package.json
-14 error code EJSONPARSE
-15 verbose exit [ 1, true ]
+5 warn package.json karma_jasmine_unit_testing@1.0.0 No repository field.
+6 warn package.json karma_jasmine_unit_testing@1.0.0 No README data
+7 verbose readDependencies using package.json deps
+8 verbose cache add [ 'karma-chrome', null ]
+9 verbose cache add name=undefined spec="karma-chrome" args=["karma-chrome",null]
+10 verbose parsed url { protocol: null,
+10 verbose parsed url   slashes: null,
+10 verbose parsed url   auth: null,
+10 verbose parsed url   host: null,
+10 verbose parsed url   port: null,
+10 verbose parsed url   hostname: null,
+10 verbose parsed url   hash: null,
+10 verbose parsed url   search: null,
+10 verbose parsed url   query: null,
+10 verbose parsed url   pathname: 'karma-chrome',
+10 verbose parsed url   path: 'karma-chrome',
+10 verbose parsed url   href: 'karma-chrome' }
+11 silly lockFile 6eae5831-karma-chrome karma-chrome
+12 verbose lock karma-chrome C:\Users\vallep\AppData\Roaming\npm-cache\6eae5831-karma-chrome.lock
+13 silly lockFile 6eae5831-karma-chrome karma-chrome
+14 silly lockFile 6eae5831-karma-chrome karma-chrome
+15 verbose addNamed [ 'karma-chrome', '' ]
+16 verbose addNamed [ null, '*' ]
+17 silly lockFile 2e2f02bd-karma-chrome karma-chrome@
+18 verbose lock karma-chrome@ C:\Users\vallep\AppData\Roaming\npm-cache\2e2f02bd-karma-chrome.lock
+19 silly addNameRange { name: 'karma-chrome', range: '*', hasData: false }
+20 verbose request where is /karma-chrome
+21 verbose request registry https://registry.npmjs.org/
+22 verbose request id a68f46c3ccb6610a
+23 verbose url raw /karma-chrome
+24 verbose url resolving [ 'https://registry.npmjs.org/', './karma-chrome' ]
+25 verbose url resolved https://registry.npmjs.org/karma-chrome
+26 verbose request where is https://registry.npmjs.org/karma-chrome
+27 info trying registry request attempt 1 at 12:20:44
+28 http GET https://registry.npmjs.org/karma-chrome
+29 http 404 https://registry.npmjs.org/karma-chrome
+30 silly registry.get cb [ 404,
+30 silly registry.get   { 'content-type': 'application/json',
+30 silly registry.get     'cache-control': 'max-age=0',
+30 silly registry.get     'content-length': '2',
+30 silly registry.get     'accept-ranges': 'bytes',
+30 silly registry.get     date: 'Sat, 17 Sep 2016 11:20:46 GMT',
+30 silly registry.get     via: '1.1 varnish',
+30 silly registry.get     age: '0',
+30 silly registry.get     connection: 'keep-alive',
+30 silly registry.get     'x-served-by': 'cache-lhr6333-LHR',
+30 silly registry.get     'x-cache': 'MISS',
+30 silly registry.get     'x-cache-hits': '0',
+30 silly registry.get     'x-timer': 'S1474111245.854363,VS0,VE353',
+30 silly registry.get     vary: 'Accept-Encoding' } ]
+31 silly lockFile 2e2f02bd-karma-chrome karma-chrome@
+32 silly lockFile 2e2f02bd-karma-chrome karma-chrome@
+33 error 404 Not Found
+33 error 404
+33 error 404 'karma-chrome' is not in the npm registry.
+33 error 404 You should bug the author to publish it
+33 error 404 It was specified as a dependency of 'karma_jasmine_unit_testing'
+33 error 404
+33 error 404 Note that you can also install from a
+33 error 404 tarball, folder, or http url, or git url.
+34 error System Windows_NT 6.2.9200
+35 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "karma-chrome" "--save-dev"
+36 error cwd C:\Users\vallep\WebstormProjects\javascript_tutorial\karma_jasmine_unit_testing
+37 error node -v v0.10.36
+38 error npm -v 1.4.28
+39 error code E404
+40 verbose exit [ 1, true ]
