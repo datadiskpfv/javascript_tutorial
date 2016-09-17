@@ -75,7 +75,7 @@ console.log(getLocalVariable());                     // private variable
  function test1() {
      var result = new Array();
 
-     for(i=0; i < 10; i++) {
+     for(var i=0; i < 10; i++) {
          result[i] = function() {
              return i;
          };
