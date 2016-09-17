@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Closure example</title>
+    <style>
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 12px;
+        }
+
+        h1 {
+            font-size: 1.5em;
+        }
+
+        h2 {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+<p>Some paragraph text</p>
+<h1>some heading 1 text</h1>
+<h2>some heading 2 text</h2>
+
+<a href="#" id="size-12">12</a><br>
+<a href="#" id="size-14">14</a><br>
+<a href="#" id="size-16">16</a><br>
+
+<!--
+  if this was an external script to need to defer it as the code needs the page loaded
+  to access the elements, otherwise the onclick event wont be attached
+-->
+<script>
+    function makeSizer(size) {
+        return function() {
+            document.body.style.fontSize = size + 'px';
+        };
+    }
+
+    // we create a function with each size, the variable points to this function.
+    // this is basically a function factory
+    var size12 = makeSizer(12);
+    var size14 = makeSizer(14);
+    var size16 = makeSizer(16);
+
+    document.getElementById('size-12').onclick = size12;
+    document.getElementById('size-14').onclick = size14;
+    document.getElementById('size-16').onclick = size16;
+</script>
+
+</body>
+</html>

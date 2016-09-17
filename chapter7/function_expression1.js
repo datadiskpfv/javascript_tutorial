@@ -46,6 +46,8 @@ function factorial(num) {
         return 1;
     } else {
         console.log("going deeper: " + num);
+        // callee is a property of the arguments object. It can be used to refer to the currently
+        // executing function inside the function body of that function
         return num * arguments.callee(num - 1);         // make sure you use the .callee to stop nulling the factorial variable
     }
 }
@@ -150,7 +152,7 @@ function outputNumbers2() {
         for (var x = 0; x < 5; x++) {
             console.log("count# " + x);
         }
-    })();               // these parentheses are used to called the function immediately
+    })();               // these parentheses are used to call the function immediately
 
     // now if you uncomment the below line you get an error because x wont be available
     // return x;
