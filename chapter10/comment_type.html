@@ -6,14 +6,16 @@
 </head>
 <body>
 
-<div id="myDiv"><!-- this is a comment --></div>
+<div id="myDiv"><!-- this is a comment -->MyDiv</div><br>
 
 <script type="text/javascript">
     var div = document.getElementById("myDiv");
-    var comment = div.firstChild;
+    var comment = div.firstChild;                           // this will be the first child (sibling)
+    var nextsib = comment.nextSibling;                      // the next child (sibling)
     document.write("Div comment: " + comment + "<br>");
-    document.write("Div comment  (nodeValue): " + comment.nodeValue + "<br>");
+    document.write("Div comment (nodeValue): " + comment.nodeValue + "<br>");
     document.write("Div comment (data): " + comment.data + "<br>");
+    document.write("Div data: " + nextsib.data + "<br>");
 
     // to create comments
     var comment = document.createComment("A comment");
