@@ -89,6 +89,8 @@
         // you can use window.event.srcElement to obtain the scope
         alert("srcElement === this? " + (window.event.srcElement === this));
     };
+
+    // adding events to the web body
     document.body.addEventListener("click", function(event){
         alert("Event Phase (document body): " + event.eventPhase); //1
     }, true);

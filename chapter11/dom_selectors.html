@@ -16,11 +16,11 @@
 <script type="text/javascript">
     // get the body element
     var body = document.querySelector("body");
-    document.write(body + "<br/>");
+    document.write("Body: " + body + "<br/>");
 
     // get the element with the ID myDiv
     var myDiv = document.querySelector("#myDiv");
-    document.write(myDiv + "<br/>");
+    document.write("myDiv: " + myDiv + "<br/>");
 
     // get all div elements
     var ems = document.querySelectorAll("div");
@@ -30,6 +30,7 @@
     // get all p strong elements and look at nodeList
     var strongs = document.querySelectorAll("p");
     document.write("Strongs: " + strongs + "<br/>");
+
     var i, len, strong;
     for(i=0, len=strongs.length; i< len; i++){
         strong = strongs.item(i).id;
