@@ -1,6 +1,9 @@
 <component name="ProjectDictionaryState">
   <dictionary name="pvalle">
     <words>
+      <w>cabtype</w>
+      <w>fname</w>
+      <w>lname</w>
       <w>msxml</w>
       <w>mydiv</w>
       <w>onreadystatechange</w>

@@ -18,6 +18,7 @@
 
     // lets stringify the whole object (should see all of the above)
     var jsonText1 = JSON.stringify(book);
+    console.dir(jsonText1);
     alert(jsonText1);
 
     // will stringify the object but this tile we will filter on title and edition
@@ -81,6 +82,9 @@
             return value;
         }
     });
+
+    // the below will output the bookCopy object to the browser console for you to inspect
+    console.dir(bookCopy);
     alert(bookCopy.releaseDate.getFullYear());
 </script>
 

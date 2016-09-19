@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Visibility</title>
+</head>
+<body>
+<div>---------------------------</div>
+<div id="mydiv1">Hello World!</div>
+<div>---------------------------</div><br><br>
+<div>---------------------------</div>
+<div id="mydiv2">Goodbye World!</div>
+<div>---------------------------</div>
+
+<script>
+    var mydiv1 = document.getElementById("mydiv1");
+    var mydiv2 = document.getElementById("mydiv2");
+
+    // complete removes element, so no space, etc
+    mydiv1.style.display = 'none';
+
+    // only hides it so you will see a space where the contains should be
+    mydiv2.style.visibility = 'hidden';
+
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Karma Jasmine Test 1</title>
+    <style>
+        button {
+            display:block;
+            height:40px;
+            line-height:40px;
+            font-size:25px;
+            margin-top:10px;
+        }
+
+        .error {
+            color: #ff3c2d;
+        }
+
+        .success {
+            color: #30874e
+        }
+    </style>
+</head>
+<body>
+    <h1>Please enter a name: </h1>
+    <h2>The name must follow these rules</h2>
+    <ol>
+        <li>Cannot be empty</li>
+        <li>Cannot contain spaces</li>
+        <li>Must start with a uppercase letter</li>
+    </ol>
+    <h3 id="validation_output"></h3>
+    <input id="name" type="text">
+    <button id="check">Check</button>
+<script src="js/validate.js"></script>
+
+<script>
+    var nameField = document.getElementById("name");
+    var checkButton = document.getElementById("check");
+    var validationOutput = document.getElementById("validation_output");
+
+    checkButton.addEventListener('click', function() {
+        var namevalue = nameField.value;
+
+        if(checkEmpty(namevalue) || checkContainsSpace(namevalue) || checkFirstLetterNotUppercase(namevalue))
+        {
+            validationOutput.innerHTML =  validationOutput.textContent = namevalue + " does not pass all rules";
+            validationOutput.className = "error";
+            console.log("Error");
+        }
+        else
+        {
+            validationOutput.innerHTML = validationOutput.textContent = namevalue + " all looks good";
+            validationOutput.className = "success";
+            console.log("Success");
+        }
+
+    });
+</script>
+</body>
+</html>

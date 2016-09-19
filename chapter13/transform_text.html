@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transform text</title>
+</head>
+<body>
+
+<div id="mydiv1">Hello world!</div>
+<div id="mydiv2">hello world!</div>
+<div id="mydiv3">hello world!</div>
+<div id="mydiv4">hello world!</div>
+
+<script>
+    var mydiv1 = document.getElementById("mydiv1");
+    var mydiv2 = document.getElementById("mydiv2");
+    var mydiv3 = document.getElementById("mydiv3");
+    var mydiv4 = document.getElementById("mydiv4");
+
+    // object.style.textTransform="none|capitalize|uppercase|lowercase|initial|inherit"
+
+    mydiv2.style.textTransform = "capitalize";
+    mydiv3.style.textTransform = "uppercase";
+    mydiv4.style.textTransform = "lowercase";
+</script>
+
+</body>
+</html>
