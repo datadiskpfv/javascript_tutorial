@@ -33,6 +33,9 @@ describe("The name validator", function(){
         it("Check add function", function() {
             expect(add(4,6)).toEqual(10);
             expect(add(4,7)).not.toEqual(10);
+
+            expect(add(4,6)).toBeGreaterThan(9);
+            expect(add(4,6)).toBeLessThan(11);
         });
 
         it("Check multiply function", function() {
@@ -54,6 +57,7 @@ describe("The name validator", function(){
         it("Check the Person object", function() {
             expect(person1.getFirstName()).toEqual("Paul");
             expect(person1.getLastName()).toEqual("Valle");
+            expect(person1.getName()).toMatch(/Paul(.+)Valle/);
 
             expect(driver1.getFirstName()).toContain("Paul");
         });
@@ -99,5 +103,19 @@ describe("The name validator", function(){
             expect(def2).toContain("World");
             expect(driver1.getFirstName()).toContain("Paul");
         });
+    });
+
+    // check add function in test1.js
+    describe("Check try/catch block", function() {
+
+        it("Check custom exception", function() {
+            expect(function() {
+             //    throw new CustomError("'I have manually thrown a Custom Error'");
+             // }).toThrow("I have manually thrown a Custom Error");
+            throw "Some exception"
+        }).toThrow("Some exception");
+
+        });
+
     });
 });
