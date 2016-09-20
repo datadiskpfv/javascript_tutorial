@@ -71,3 +71,18 @@ var undef3 = "";
 
 var def1 = true;
 var def2 = "Hello World!";
+
+// create a custom Error message
+function CustomError(message) {
+    //this.name = "CustomError";
+    this.message = message
+}
+
+// inherit from Error object
+CustomError.prototype = new Error();
+
+try {
+    throw new CustomError("I have manually thrown a Custom Error")
+}
+catch (error) {
+}
