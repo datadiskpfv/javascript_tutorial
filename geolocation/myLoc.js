@@ -137,4 +137,3 @@ function scrollMapToPosition(latitude, longitude) {
     addMarker(map, latlong, "Your new location", "You moved to: " +
         latitude + ", " + longitude);
 }
-
