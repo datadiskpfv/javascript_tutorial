@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Look What I Drew</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="canvas1.css">
+</head>
+<body>
+<canvas id="canvas1" width="600" height="200">If you are seeing this message then you browser does not support canvas</canvas>
+<form>
+    <p>
+        <label for="backgroundColor">Select background color:</label>
+        <select id="backgroundColor">
+            <option value="white" selected="selected">White</option>
+            <option value="black">Black</option>
+        </select>
+    </p>
+    <p>
+        <label for="shape">Circles or squares?</label>
+        <select id="shape">
+            <option value="none" selected="selected">Neither</option>
+            <option value="circles">Circles</option>
+            <option value="squares">Squares</option>
+        </select>
+    </p>
+    <p>
+        <label for="foregroundColor">Select text color:</label>
+        <select id="foregroundColor">
+            <option value="black" selected="selected">Black</option>
+            <option value="white">White</option>
+        </select>
+    </p>
+    <p>
+        <label for="tweets">Pick a tweet:</label>
+        <select id="tweets">
+        </select>
+    </p>
+    <p>
+        <input type="button" id="previewButton" value="Preview">
+    </p>
+</form>
+<script src="canvas1.js"></script>
+</body>
+</html>
