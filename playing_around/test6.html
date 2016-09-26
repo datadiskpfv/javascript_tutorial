@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test 6</title>
+</head>
+<body>
+
+<div id="mydiv1">mydiv1</div>
+
+<script id="script1">
+    var mydiv1 = document.getElementById("mydiv1");
+    var mydiv2 = document.createElement("div");
+    mydiv2.setAttribute("id", "mydiv2");
+    mydiv2.innerHTML = "mydiv2";
+
+    // inserting before something
+    document.body.insertBefore(mydiv2, document.body.firstChild);
+
+    var mydiv3 = document.createElement("div");
+    mydiv3.setAttribute("id", "mydiv3");
+    mydiv3.innerHTML = "mydiv3";
+
+    // inserting before something
+    document.body.insertBefore(mydiv3, document.body.lastChild);
+
+    // put mydiv1 between mydiv2 and mydiv1
+    var mydiv4 = document.createElement("div");
+    mydiv4.setAttribute("id", "mydiv4");
+    mydiv4.innerHTML = "mydiv4";
+
+    // inserting before something
+    document.body.insertBefore(mydiv4, document.getElementById("mydiv1"));
+
+    // list body elements
+    var mydiv5 = document.createElement("div");
+    mydiv5.setAttribute("id", "mydiv5");
+    var bodyElements = document.body.getElementsByTagName("*")
+
+    var mydiv6 = document.createElement("div");
+    mydiv6.setAttribute("id", "mydiv6");
+    mydiv6.innerHTML = "mydiv6";
+
+    for (var i = 0; i < bodyElements.length; i++) {
+        mydiv5.innerHTML += "[" + i + "] - " + bodyElements[i].getAttribute("id") + "<br>";
+
+        if ( bodyElements[i].getAttribute("id") == 'mydiv3' ) {
+            document.body.insertBefore(mydiv6, document.getElementById(bodyElements[i].getAttribute("id")));
+        }
+    }
+
+    document.body.insertBefore(mydiv5, document.body.lastChild);
+
+    var mydiv7 = document.createElement("div");
+    mydiv7.setAttribute("id", "mydiv7");
+
+    // inserting before something
+    document.body.insertBefore(mydiv7, document.body.lastChild);
+
+
+    // three different ways to get a child from the body, or elements contents
+    // use firstelementchild and nextelementsibling, etc as you may have newlines
+    // which messes up the the sibling flow
+    mydiv7.innerHTML = "Body[4] element: " + document.body.getElementsByTagName("*")[4].getAttribute("id") + "<br>";
+    mydiv7.innerHTML += "Body[1] element: " + document.body.getElementsByTagName("*")[1].getAttribute("id") + "<br>";
+    mydiv7.innerHTML += "Body[2] element: " + document.getElementsByTagName('body')[0].getElementsByTagName("*")[2].getAttribute("id") + "<br>";
+    mydiv7.innerHTML += "mydiv1 element: " + mydiv1.innerHTML + "<br>";
+    mydiv7.innerHTML += "Body[0] : " + document.body.firstElementChild.id + "<br>";
+    mydiv7.innerHTML += "Body[1] : " + document.body.firstElementChild.nextElementSibling.id + "<br>";
+    mydiv7.innerHTML += "Body[2] : " + document.body.firstElementChild.nextElementSibling.nextElementSibling.id + "<br>";
+    mydiv7.innerHTML += "Body[0] : " + document.getElementsByTagName('body')[0].firstElementChild.id + "<br>";
+
+</script>
+
+</body>
+</html>
