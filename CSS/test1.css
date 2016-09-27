@@ -1,0 +1,55 @@
+body {
+    background-color: burlywood;
+}
+
+.header, .footer {
+    height: 50px;
+    width: 800px;
+    border: solid 2px #30874e;
+    clear: left;
+}
+
+.main_menu {
+    height: 600px;
+    width: 598px;
+    border: solid 2px #ff3c2d;
+    margin-left: 202px;
+}
+
+.sidebar {
+    height: 600px;
+    width: 200px;
+    border: solid 2px blue;
+    float: left;
+}
+
+div.box-set {
+    background: burlywood;
+    height: 580px;
+    position: relative;
+    border: solid 2px red;
+}
+
+div.main {
+    background: #2db34a;
+    height: 282px;
+    position: absolute;
+    width: 290px;
+    border: solid 2px black;
+}
+
+div.main-1 {
+   // main-1 blank as we want top-left
+}
+
+div.main-2 {
+    top: 0;
+    right: 0px;
+}
+div.main-3 {
+    bottom: 0px;
+    right: 0px;
+}
+div.main-4 {
+    bottom: 0;
+}

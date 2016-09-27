@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Playing around with CSS</title>
+    <link rel="stylesheet" href="test1.css">
+</head>
+<body>
+
+<div class="header">Header</div>
+
+<div class="sidebar">sidebar</div>
+<div class="main_menu" id="main_menu">Main Menu
+    <div class="box-set">
+      <div class="main main-1" id="main1">main1</div>
+      <div class="main main-2" id="main2">main2</div>
+      <div class="main main-3" id="main3">main3</div>
+      <div class="main main-4" id="main4">main4</div>
+    </div>
+</div>
+
+<div class="footer">Footer</div>
+
+<!-- lets add an image to main1 -->
+<script>
+    // create the image element
+    var img1 = document.createElement("img");
+    img1.src =  'twitterBird.png';
+    img1.alt = 'twitterBird';
+    img1.height = '100';
+    img1.width = '100';
+
+    // append to main1
+    document.getElementById("main1").appendChild(img1);
+</script>
+
+<!-- add a anchor image to main2 -->
+<script>
+    // create the image element
+    var img2 = document.createElement("img");
+    img2.src =  'twitterBird.png';
+    img2.alt = 'twitterBird';
+    img2.height = '100';
+    img2.width = '100';
+
+    // create the anchor element
+    var anchor1 = document.createElement("a");
+    anchor1.href = "http://www.datadisk.co.uk";
+
+    // tie the two together and append to main2
+    anchor1.appendChild(img2);
+    document.getElementById("main2").appendChild(anchor1);
+</script>
+
+<!-- doing the above manually -->
+<script>
+    // the manual way to do the above, basically you could build the string
+    var anchor2 = '<a href="http://www.datadisk.co.uk"> <img src="twitterBird.png" alt="twitterbird" height="100" width="100"></a>'
+    document.getElementById("main3").innerHTML = anchor2;
+</script>
+
+</body>
+</html>
