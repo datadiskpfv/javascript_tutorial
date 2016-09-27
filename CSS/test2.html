@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Playing around with CSS</title>
+    <link rel="stylesheet" href="test2.css">
+</head>
+<body>
+<div class="header">
+  <div class="header_layout">
+    <div class="header_logo" id="header_logo">logo</div>
+    <div class="header_logo" id="header_text">Test Website Inc</div>
+  </div>
+</div>
+
+<div class="sidebar" id="sidebar"></div>
+<div class="main_menu" id="main_menu">
+    <div class="main_menu_text" id="main_menu_text">Main Menu</div>
+    <div class="box-set">
+      <div class="main" id="main1">main1</div>
+      <div class="main" id="main2">main2</div>
+      <div class="main" id="main3">main3</div>
+      <div class="main" id="main4">main4</div>
+    </div>
+</div>
+
+<div class="footer">Footer (centered)</div>
+
+<!-- adding some links to the sidebar -->
+<script>
+    var d = document.createElement("a");
+    var g = document.createElement("a");
+
+    var linkText1 = document.createTextNode("Datadisk");
+    d.appendChild(linkText1);
+    d.title = "Datadisk"
+    d.href = "http://www.datadisk.co.uk"
+
+    var linkText2 = document.createTextNode("Google");
+    g.appendChild(linkText2);
+    g.title = "Google"
+    g.href = "http://www.google.co.uk"
+
+    document.getElementById("sidebar").appendChild(d);
+    document.getElementById("sidebar").appendChild(document.createElement("br"));
+    document.getElementById("sidebar").appendChild(g);
+</script>
+
+<!-- lets change the main menu text -->
+<script>
+    var main_menu_test = document.getElementById("main_menu_text");
+    main_menu_test.innerHTML = "Hello World!"
+</script>
+
+<!-- lets add an image to main1 -->
+<script>
+    // create the image element
+    var img1 = document.createElement("img");
+    img1.src =  'twitterBird.png';
+    img1.alt = 'twitterBird';
+    img1.height = '100';
+    img1.width = '100';
+
+    // append to main1
+    document.getElementById("main1").appendChild(img1);
+</script>
+
+<!-- add a anchor image to main2 -->
+<script>
+    // create the image element
+    var img2 = document.createElement("img");
+    img2.src =  'twitterBird.png';
+    img2.alt = 'twitterBird';
+    img2.height = '100';
+    img2.width = '100';
+
+    // create the anchor element
+    var anchor1 = document.createElement("a");
+    anchor1.href = "http://www.datadisk.co.uk";
+
+    // tie the two together and append to main2
+    anchor1.appendChild(img2);
+    document.getElementById("main2").appendChild(anchor1);
+</script>
+
+<!-- doing the above manually -->
+<script>
+    // the manual way to do the above, basically you could build the string
+    var anchor2 = '<a href="http://www.datadisk.co.uk"> <img src="twitterBird.png" alt="twitterbird" height="100" width="100"></a>'
+    document.getElementById("main3").innerHTML = anchor2;
+</script>
+
+<script>
+    var main_menu_test = document.getElementById("main4");
+    main_menu_test.innerHTML = "<span>I am putting in fsdfdsfsdf sfskdjhfkdshf sdfhdskhfkds dlkfjldskjf</span>";
+</script>
+
+</body>
+</html>
