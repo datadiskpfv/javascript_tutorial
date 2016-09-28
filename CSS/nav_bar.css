@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+}
+
+ul {
+    /* lots of different values */
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 15%;
+    background-color: #f1f1f1;
+    /* this means it wont move when scrolling the page */
+    position: fixed;
+    height: 100%;
+    /* visible (default) |hidden|scroll|auto|initial (set to default) |inherit; */
+    overflow: auto;
+}
+
+li a {
+    display: block;
+    color: black;
+    padding: 8px 16px;
+    /* none (default)|underline|overline|line-through|initial (set to default)|inherit; */
+    text-decoration: none;
+}
+
+li a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* the below means apply to hover but not to active class selectors */
+li a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}
+
+/* you can even use hover over a paragraph */
+p.turnpink:hover {
+    color: deeppink;
+}

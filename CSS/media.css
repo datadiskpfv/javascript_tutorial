@@ -1,0 +1,62 @@
+body {
+    background-color: lightblue;
+}
+
+/* you can change the styling based on the screen size plus many many more attributes */
+/* this is used for when using different devices, PC, modile, tablet, etc */
+@media screen and (min-width: 500px) {
+    body {
+        background-color: lightgreen;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    body {
+        background-color: lightsalmon;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    body {
+        background-color: lightyellow;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    body {
+        background-color: lightcoral;
+    }
+}
+
+@media only screen and (orientation: landscape) {
+    body {
+        background-color: lightgray;
+    }
+}
+
+div.test {
+    height: 21px;
+}
+
+.clickme:focus {
+    background-color: green;
+
+}
+
+.clickme:hover {
+    background-color: red;
+
+}
+
+/* you can capitialize first letter, or bold a line using first-line */
+p:first-letter {
+    font-size: 24px;
+    float: left;
+}
+
+/* you can add some test using before and after with content */
+p:after {
+    content: 'I have added this text using CSS';
+    color: red;
+}
+                                                                                                                                                                 </html>

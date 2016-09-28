@@ -63,7 +63,12 @@ div.box-set {
 
 div.main {
     display: inline-block;
-    background: #2db34a;
+    /* you can have background that change color over a box, you can also specify where it  */
+    /* will start and stop - example to_right, to_bottom, etc */
+    /* radial-gradient start from the center and go outwards */
+    /* you can even repeat gradients */
+    background: linear-gradient(#2db34a, lightgreen);
+    /* background: #2db34a; */
     height: 270px;
     width: 270px;
     border: solid 2px black;
@@ -71,4 +76,12 @@ div.main {
     margin: 3px;
     overflow: hidden;
     //white-space: nowrap;
+    /* rounded corners, you can any top, right, bottom, left - example 20px, 20px, 20px 20px */
+    border-radius: 20px;
+    /* add shadows to boxes, you can also do inner shadows (use inset keyword) */
+    box-shadow: 5px 5px 3px 1px #999;
+    /* turn the boxes by 5 degrees, you also have skewing, scale, translate */
+    /* you can mix and match the above or use matrix */
+    /* you can use transform-origin to pin-point where the rotate should happen, top, bottom, center, anywhere */
+    transform: rotate(-5deg);
 }

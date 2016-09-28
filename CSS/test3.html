@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Testing new HTML5 stuff</title>
+    <style>
+        ul {
+            list-style-type: squares;
+        }
+        input:focus { outline: none; }
+        input[type=email]:valid { border: 2px green solid; border-color: lightgray ; outline: none;}
+        input[type=email]:invalid { border-color: red }
+    </style>
+</head>
+<body>
+
+<article>
+    <header>
+        <h1>Alternatively&hellip;</h1>
+        <p>[An introduction]</p>
+    </header>
+    <section id="main_content">
+        <p>[Content]</p>
+        <aside>
+            <h2>Orbian Test</h2>
+            <p>[A short note about orbian]</p>
+        </aside>
+        <p>[More Content]</p>
+        <figure>
+            <img src="twitterBird1.png" width="100" height="100">
+            <figcaption>orbian</figcaption>
+        </figure>
+        <nav id="main_nav">
+            <ul>
+                <li><a href="/tutorials/">Tutorials</a></li>
+                <li><a href="/techniques/">Techniques</a></li>
+                <li><a href="/examples/">Examples</a></li>
+                <li><a href="/references/">References</a></li>
+            </ul>
+        </nav>
+        <form action="somescript.php" >
+            <fieldset>
+                <legend>Name</legend>
+                <p>First name <input name="firstName" accesskey="e"></p>
+                <p>Last name <input name="lastName" accesskey="r"></p>
+                <p>email <input type="email" name="lastName" accesskey="r"></p>
+            </fieldset>
+            <fieldset>
+                <legend>Address</legend>
+                <p>Address <textarea name="address"></textarea></p>
+                <p>Postal code <input name="postcode"></p>
+            </fieldset>
+        </form>
+        <select name="country">
+            <optgroup label="Africa">
+                <option value="gam">Gambia</option>
+                <option value="mad">Madagascar</option>
+                <option value="nam">Namibia</option>
+            </optgroup>
+            <optgroup label="Europe">
+                <option value="fra">France</option>
+                <option value="rus">Russia</option>
+                <option value="uk">UK</option>
+            </optgroup>
+            <optgroup label="North America">
+                <option value="can">Canada</option>
+                <option value="mex">Mexico</option>
+                <option value="usa">USA</option>
+            </optgroup>
+        </select>
+    </section>
+    <footer>
+        <p>[End notes]</p>
+    </footer>
+</article>
+<footer>
+    <p>[Copyright bumf]</p>
+</footer>
+
+</body>
+</html>

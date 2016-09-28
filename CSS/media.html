@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Testing CSS media</title>
+    <link rel="stylesheet" href="media.css">
+</head>
+<body>
+
+<h1>Resize the browser window to see the effect!</h1>
+<p>The media query will only apply if the media type is screen and the viewport is 480px wide or wider.</p>
+<div class="test" id="test">test</div>
+<div id="output">output</div>
+
+<p class="resize_p">Resize the browser window. When the width of this document is larger than the height, the background-color
+is "lightgray".</p>
+
+<div id="screensize"></div>
+
+<button type="button" class="clickme">click me</button>
+
+<script>
+    var x = "Total Width: " + window.innerWidth + "<br>" +
+            "Total Height: " + window.innerHeight;
+    document.getElementById("screensize").innerHTML = x;
+
+    window.onresize = function(event) {
+        var x = "Total Width: " + window.innerWidth + "<br>" +
+                "Total Height: " + window.innerHeight;
+        document.getElementById("screensize").innerHTML = x;
+    };
+</script>
+
+<!-- get a CSS value and display it -->
+<script>
+    var elem = document.getElementById("test");
+    var theCSSprop = window.getComputedStyle(elem,null).getPropertyValue("height");
+    document.getElementById("output").innerHTML = "the CSS .test class height value: " + theCSSprop;
+</script>
+
+</body>
+</html>
