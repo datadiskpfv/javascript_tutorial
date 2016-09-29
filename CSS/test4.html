@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test 4</title>
+    <style>
+        #main {
+            width: 800px;
+            margin: 0px;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        div {
+            background-color: #f1f1f1;
+            margin-left: 20%;
+            padding: 1px 10px;
+            height: 600px;
+        }
+
+        #b {
+            list-style-type: none;
+            background-color: #f1f1f1;
+            width: 15%;
+            position: fixed;
+            height: 40%;
+            overflow: scroll;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        #b a {
+            display: block;
+            color: black;
+            padding: 8px 16px;
+            /* none (default)|underline|overline|line-through|initial (set to default)|inherit; */
+            text-decoration: none;
+        }
+
+        li a.home {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        #b a:hover:not(.home) {
+            background-color: #555;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+  <ul id="b">
+    <li><a class="home" href="#home">Home</a></li>
+    <li><a href="/tutorials/">Tutorials</a></li>
+    <li><a href="/techniques/">Techniques</a></li>
+    <li><a href="/examples/">Examples</a></li>
+    <li><a href="/references/">References</a></li>
+  </ul>
+
+  <div id="div1">
+    <ul class="a" id="a">
+        <li><a href="/tutorials/">Tutorials</a></li>
+        <li><a href="/techniques/">Techniques</a></li>
+        <li><a href="/examples/">Examples</a></li>
+        <li><a href="/references/">References</a></li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>
