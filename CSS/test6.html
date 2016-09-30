@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Range slider</title>
+    <style>
+        input[type=range]{
+            -webkit-appearance: none;
+        }
+
+        /* the style for the track */
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 300px;
+            height: 5px;
+            background: #ddd;
+            border: none;
+            border-radius: 3px;
+        }
+
+        /* this styles the button */
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            border: none;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            //background: goldenrod;
+            background: -webkit-linear-gradient(red 50%, black 51%, yellow 60%);
+
+
+            border: 1px solid #000000;
+        }
+
+        input[type=range]:focus {
+            outline: none;
+        }
+
+        /* the track changes color when you focus */
+        input[type=range]:focus::-webkit-slider-runnable-track {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<form action="#" method="post">
+    This is a range slider (0-100):
+    <input type="range" id="slider" min="0" max="100" onChange="evalSlider(this.value)"/>
+    <div><output id="sliderVal"></output></div>
+</form>
+
+<script>
+    function evalSlider(value) {
+        document.getElementById('sliderVal').innerHTML = value;
+    }
+</script>
+
+</body>
+</html>
