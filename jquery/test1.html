@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test7</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="test1.css">
+</head>
+<body>
+
+<div id="mydiv1">Click me</div>
+<div id="mydiv2"></div>
+<img src="twitterBird.png" width="50" height="50">
+
+<script>
+    // once the DOM has been read execute the below
+    // you can use load but you have to wait for everything to load - images, external scripts, etc
+    $(document).ready(function() {
+
+        // adding a click eventhandler, creating an alert and changing the text
+        $("#mydiv1").click(function() {
+          alert("changing mydiv1");
+          $("#mydiv1").html("Goodbye World");
+        });
+
+        // playing around with a few controls
+        $("img").slideUp().slideDown();
+        $("img").fadeOut(2000).fadeIn(2000);
+    });
+</script>
+
+</body>
+</html>

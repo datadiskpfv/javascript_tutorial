@@ -1,0 +1,9 @@
+#mydiv1 {
+    height: 100px;
+    width: 100px;
+    border: 2px solid #000;
+    background-color: yellow;
+
+    position: absolute;
+    top: 100px;
+}
