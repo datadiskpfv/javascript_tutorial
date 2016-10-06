@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Jump For Joy</title>
-    <link rel="stylesheet" href="jfj.css">
+    <link rel="stylesheet" href="styles/jfj.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 </head>
 <body>
@@ -19,16 +19,6 @@
   <div class="guess_box"><img src="images/jump4.jpg"></div>
 </div>
 
-<script>
-    $(document).ready(function() {
-        $(".guess_box").click(function() {
-            alert("you clicked me");
-        });
-
-        var discount = Math.floor((Math.random() * 5) + 5);
-        var discount_msg = "<p>Your discount is " + discount + "%</p>"
-        alert(discount_msg);
-    });
-</script>
+<script src="scripts/jfj.js"></script>
 </body>
 </html>
