@@ -6,13 +6,17 @@
     <link rel="stylesheet" href="styles/monster.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 </head>
-<body>
+<div>
   <header id="top">
     <img id="text_top" src="images/Monster_Mashup.png" />
     <p>Make your own monster face by clicking on the picture.</p>
   </header>
 
-  <div id="frame">
+<div id="container">
+  <img class="lightning" id="lightning1" src="images/lightning-01.jpg" />
+  <img class="lightning" id="lightning2" src="images/lightning-02.jpg" />
+  <img class="lightning" id="lightning3" src="images/lightning-03.jpg" />
+    <div id="frame">
     <div id="pic_box">
        <div id="head" class="face"><img src="images/headsstrip.jpg"></div>
        <div id="eyes" class="face"><img src="images/eyesstrip.jpg"></div>
@@ -20,6 +24,7 @@
        <div id="mouth" class="face"><img src="images/mouthsstrip.jpg"></div>
     </div>
   </div>
-
+</div>
+<script src="scripts/monster.js"></script>
 </body>
 </html>
