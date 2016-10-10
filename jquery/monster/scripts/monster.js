@@ -11,36 +11,45 @@ $(document).ready(function() {
 
     $("#head").click(function() {
         if(headclix < 9) {
+            $(this).animate({left:"-=367px"}, 500);
             headclix += 1;
         }
         else {
+            $(this).animate({left:"0px"}, 500);
             headclix = 0;
         }
     });
 
-    $("#eye").click(function() {
+    $("#eyes").click(function() {
         if(eyeclix < 9) {
+            $(this).animate({left:"-=367px"}, 500);
             eyeclix += 1;
         }
         else {
+            $(this).animate({left:"0px"}, 500);
             eyeclix = 0;
         }
     });
 
     $("#nose").click(function() {
-        if(nodeclix < 9) {
+        if(noseclix < 9) {
+            // You need to use the DOM word notation on CSS word notation
+            $(this).animate({left:"-=367px"}, 500);
             noseclix += 1;
         }
         else {
+            $(this).animate({left:"0px"}, 500);
             noseclix = 0;
         }
     });
 
     $("#mouth").click(function() {
         if(mouthclix < 9) {
+            $(this).animate({left:"-=367px"}, 500);
             mouthclix += 1;
         }
         else {
+            $(this).animate({left:"0px"}, 500);
             mouthclix = 0;
         }
     });
