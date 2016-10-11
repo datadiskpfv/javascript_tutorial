@@ -3,69 +3,72 @@
  */
 
 $(document).ready(function() {
-    var headclix = 0, eyeclix = 0, noseclix = 0, mouthclix = 0;
-
-    lightning_one(4000);
-    lightning_two(7000);
-    lightning_three(10000);
+    // holds the picture picture position 0-8, 9 starts back at 0
+    var clix = [0, 0, 0, 0];  // head, eyes, nose, mouth
 
     $("#head").click(function() {
-        if(headclix < 9) {
-            $(this).animate({left:"-=367px"}, 500);
-            headclix += 1;
-        }
-        else {
-            $(this).animate({left:"0px"}, 500);
-            headclix = 0;
-        }
+       moveMe(0, this);
     });
 
     $("#eyes").click(function() {
-        if(eyeclix < 9) {
-            $(this).animate({left:"-=367px"}, 500);
-            eyeclix += 1;
-        }
-        else {
-            $(this).animate({left:"0px"}, 500);
-            eyeclix = 0;
-        }
+       moveMe(1, this);
     });
 
     $("#nose").click(function() {
-        if(noseclix < 9) {
-            // You need to use the DOM word notation on CSS word notation
-            $(this).animate({left:"-=367px"}, 500);
-            noseclix += 1;
-        }
-        else {
-            $(this).animate({left:"0px"}, 500);
-            noseclix = 0;
-        }
+        moveMe(2, this);
     });
 
     $("#mouth").click(function() {
-        if(mouthclix < 9) {
-            $(this).animate({left:"-=367px"}, 500);
-            mouthclix += 1;
+        moveMe(3, this);
+    });
+
+    function moveMe(i, obj) {
+        if(clix[i] < 9) {
+            $(obj).animate({left:"-=367px"}, 500);
+            clix[i] += 1;
         }
         else {
-            $(this).animate({left:"0px"}, 500);
-            mouthclix = 0;
+            $(obj).animate({left:"0px"}, 500);
+            clix[i] = 0;
         }
-    });
+    }
 });
 
-function lightning_one(t) {
+goLightning();
+window.onblur = stopLightning;
+window.onfocus = goLightning;
+
+var int1, int2, int3;
+
+function goLightning() {
+
+    intl1 = setInterval( function() {
+        lightning_one();
+    }, 4000);
+
+    intl2 = setInterval( function() {
+        lightning_two();
+    }, 7000);
+
+    intl3 = setInterval( function() {
+        lightning_three();
+    }, 10000);
+}
+
+function stopLightning() {
+    window.clearInterval(int1);
+    window.clearInterval(int2);
+    window.clearInterval(int3);
+}
+
+function lightning_one() {
     $("#container #lightning1").fadeIn(250).fadeOut(250);
-    setTimeout("lightning_one(4000)", t);
 };
 
-function lightning_two(t) {
+function lightning_two() {
     $("#container #lightning2").fadeIn("fast").fadeOut("fast");
-    setTimeout("lightning_two(7000)", t);
 };
 
-function lightning_three(t) {
+function lightning_three() {
    $("#container #lightning3").fadeIn("fast").fadeOut("fast");
-   setTimeout("lightning_three(10000)", t);
 };

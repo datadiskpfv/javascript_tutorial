@@ -118,7 +118,9 @@ $('#btnHit').click(function() {
 });
 
 $('#btnStick').click(function() {
-    $('#hdrResult').html('Stick');
+    $('#hdrResult').html('Stick').attr('class', 'win');
+    $('#imgResult').attr('src', 'images/check.png');
+    end();
 });
 
 $("#btnRestart").click(function() {
@@ -151,15 +153,24 @@ var hand = {
       // now lets do some checking of the total and see if you win or lose
       if(this.current_total > 21) {
           $('#btnStick').trigger("click");
-          $('#hdrResult').html("BUST!");
+          $('#imgResult').attr('src', 'images/x2.png');
+          $('#hdrResult').html("BUST!").attr('class', 'lose');
       } else if (this.current_total == 21 ) {
           $('#btnStick').trigger("click");
-          $('#hdrResult').html("BlackJack!");
+          $('#imgResult').attr('src', 'images/check.png');
+          $('#hdrResult').html("BlackJack!").attr('class', 'win');
       } else if (this.current_total <= 21 && this.cards.length == 5) {
           $('#btnStick').trigger("click");
-          $('#hdrResult').html("BlackJack - 5 card trick!");
+          $('#imgResult').attr('src', 'images/check.png');
+          $('#hdrResult').html("BlackJack - 5 card trick!").attr('class', 'win');
       } else {
           // Keep playing !
       }
   }
 };
+
+function end() {
+    $('#btnHit').toggle();
+    $('#btnStick').toggle();
+    $('#btnRestart').toggle();
+}

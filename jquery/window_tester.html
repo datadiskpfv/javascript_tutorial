@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Window Focus</title>
+    <style>
+        .blurItem{
+            color: blue;
+        }
+
+        .focusItem{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+When this window is focused or blurred, a message will appear below telling you when you left and when you came back:
+
+<ul class="myList"></ul>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+<script>
+    $(document).ready(function(){
+      //Keep track of when a visitor leaves the window and when they return
+      window.onblur = blurMe;
+      window.onfocus = focusMe;
+
+      function blurMe() {
+        var t=new Date();
+        $("ul.myList").append("<li class='blurItem'>You left this window at "+t.getHours()+":"+t.getMinutes()+":"+t.getSeconds()+"</li>");
+      }
+
+      function focusMe() {
+        var t=new Date();
+        $("ul.myList").append("<li class='focusItem'>You came back to this window at "+t.getHours()+":"+t.getMinutes()+":"+t.getSeconds()+"</li>");
+      }
+
+    });//end doc.onready function
+</script>
+
+</body>
+
+</html>
