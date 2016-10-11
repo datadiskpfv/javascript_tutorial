@@ -17,3 +17,9 @@ h3 {
 .current_hand {
     float: left;
 }
+
+#btnHit, #btnStick,
+#btnRestart {
+    display: none;
+    float: left;
+}
