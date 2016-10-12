@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>2016 Race Finishers</title>
+    <link href="styles/ajax.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+<body>
+<header>
+    <h2>2011 Race Finishers!</h2>
+</header>
+<div id="main">
+    <ul class="idTabs">
+        <li><a href="#male">Male Finishers</a></li>
+        <li><a href="#female">Female Finishers</a></li>
+        <li><a href="#all">All Finishers</a></li>
+    </ul>
+    <div id="male">
+        <h4>Male Finishers</h4>
+        <ul id="finishers_m"></ul>
+    </div>
+    <div id="female">
+        <h4>Female Finishers</h4>
+        <ul id="finishers_f"></ul>
+    </div>
+    <div id="all">
+        <h4>All Finishers</h4>
+        <ul id="finishers_all"></ul>
+    </div>
+</div>
+<footer>
+    <h4>Congratulations to all our finishers!</h4>
+    <br>Last Updated: <div id="updatedTime"></div>
+</footer>
+<script src="scripts/ajax.js"></script>
+<script src="scripts/jquery.idTabs.min.js"></script>
+</body>
+</html>
