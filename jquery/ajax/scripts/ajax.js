@@ -27,6 +27,9 @@ function getXMLRacers() {
                 }
                 $('#finishers_all').append(info);
             });
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            alert("Status: " + textStatus); alert("Error: " + errorThrown);
         }
     });
 }
@@ -43,7 +46,7 @@ $(function() {
     function startAJAXcalls() {
         if(repeat) {
             setTimeout(function () {
-                getXMLRacers();
+                getDBRacers();
                 startAJAXcalls();
                 showFrequency();
                 getTimeAjax();
@@ -64,9 +67,32 @@ $(function() {
     })
 
     // get the whole thing started
-    getXMLRacers();
+    getDBRacers();
     startAJAXcalls();
 });
+
+function getDBRacers() {
+    $.getJSON("http://localhost/get_data_json.php", function(json) {
+        if (json.runners.length > 0) {
+            $('#finishers_m').empty();
+            $('#finishers_f').empty();
+            $('#finishers_all').empty();
+
+            $.each(json.runners, function() {
+                var info = '<li>Name:' + this['fname'] + ' ' + this['lname'] +
+                    ' Time: ' + this['time'] + '</li>';
+
+                if (this['gender'] == "m") {
+                    $('#finishers_m').append(info);
+                } else if (this['gender'] == "f") {
+                    $('#finishers_f').append(info);
+                } else {
+                }
+                $('#finishers_all').append(info);
+            });
+        }
+    });
+}
 
 function showFrequency() {
     $("#freq").html("Page refreshes every " + FREQ/1000 + " second(s)");
