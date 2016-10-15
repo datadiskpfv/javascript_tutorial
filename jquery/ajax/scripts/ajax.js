@@ -72,7 +72,7 @@ $(function() {
 });
 
 function getDBRacers() {
-    $.getJSON("http://localhost/get_data_json.php", function(json) {
+    $.getJSON("http://localhost:8080/service.php?action=getRunners", function(json) {
         if (json.runners.length > 0) {
             $('#finishers_m').empty();
             $('#finishers_f').empty();
@@ -99,7 +99,7 @@ function showFrequency() {
 }
 
 function getTimeAjax() {
-    $('#updatedTime').load("http://localhost/time.php")
+    $('#updatedTime').load("http://localhost:8080/date_time.php")
 }
 
 
@@ -128,5 +128,5 @@ function clearInputs(){
 }
 
 $("#addRunner").submit(function(){
-    return false;
+    //return false;
 });
