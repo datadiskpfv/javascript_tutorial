@@ -101,11 +101,9 @@ $(document).ready(function(){
     });
 
 
-
     $( "#red" ).slider( "value", 127 );
     $( "#green" ).slider( "value", 127 );
     $( "#blue" ).slider( "value", 127 );
-
 
 
     //5. Build a nicer-looking â€œsubmitâ€œ button for the Sightings form..
